@@ -1,0 +1,20 @@
+{
+  "name": "@vue-icons/all-files",
+  "version": "0.0.1",
+  "description": "SVG Vue icons of popular icon packs using ES6 imports",
+  "author": "DwanL <253929992@qq.com>",
+  "license": "MIT",
+  "packageManager": "yarn@3.6.0",
+  "sideEffects": false,
+  "repository": "https://github.com/dwanl/vue-icons.git",
+  "bugs": {
+    "url": "https://github.com/dwanl/vue-icons/issues"
+  },
+  "homepage": "https://github.com/dwanl/vue-icons#readme",
+  "main": "./lib/index.js",
+  "module": "./lib/index.mjs",
+  "types": "./lib/index.d.ts",
+  "peerDependencies": {
+    "vue": "*"
+  }
+}
