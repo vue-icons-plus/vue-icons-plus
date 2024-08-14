@@ -1,0 +1,28 @@
+{
+  "name": "preview",
+  "private": true,
+  "version": "0.0.0",
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "vue-tsc && vite build",
+    "preview": "vite preview"
+  },
+  "dependencies": {
+    "@highlightjs/vue-plugin": "^2.1.0",
+    "@vue-icons/all-files": "^0.0.1",
+    "highlight.js": "^11.10.0",
+    "mitt": "^3.0.1",
+    "radash": "^12.1.0",
+    "vue": "^3.4.21",
+    "vue-icons": "^0.0.1",
+    "vue-router": "4"
+  },
+  "devDependencies": {
+    "@rollup/plugin-dynamic-import-vars": "^2.1.2",
+    "@vitejs/plugin-vue": "^5.0.4",
+    "typescript": "^5.2.2",
+    "vite": "^5.2.0",
+    "vue-tsc": "^2.0.6"
+  }
+}
