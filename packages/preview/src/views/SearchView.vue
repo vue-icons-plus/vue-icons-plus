@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { IconsManifest } from "vue-icons";
+import { IconsManifest } from "vue-icons-plus";
 import { reactive, ref, watch } from "vue";
 import { useRoute } from "vue-router";
 import SearchIconSet from "../components/SearchIconSet.vue";
@@ -8,8 +8,8 @@ const route = useRoute();
 const queryId = ref("");
 const manifest = reactive(IconsManifest);
 watch(
-  () => route.query,
-  (query) => {
+  () => route.query.q,
+  (q) => {
     queryId.value = query.q;
   }
 );

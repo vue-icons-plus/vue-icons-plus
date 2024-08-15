@@ -1493,9 +1493,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@vue-icons/all-files@^0.0.1, @vue-icons/all-files@workspace:packages/vue-icons_all-files":
+"@vue-icons-plus/all-files@^0.0.1, @vue-icons-plus/all-files@workspace:packages/vue-icons_all-files":
   version: 0.0.0-use.local
-  resolution: "@vue-icons/all-files@workspace:packages/vue-icons_all-files"
+  resolution: "@vue-icons-plus/all-files@workspace:packages/vue-icons_all-files"
   peerDependencies:
     vue: "*"
   languageName: unknown
@@ -6265,14 +6265,14 @@ __metadata:
     "@highlightjs/vue-plugin": ^2.1.0
     "@rollup/plugin-dynamic-import-vars": ^2.1.2
     "@vitejs/plugin-vue": ^5.0.4
-    "@vue-icons/all-files": ^0.0.1
+    "@vue-icons-plus/all-files": ^0.0.1
     highlight.js: ^11.10.0
     mitt: ^3.0.1
     radash: ^12.1.0
     typescript: ^5.2.2
     vite: ^5.2.0
     vue: ^3.4.21
-    vue-icons: ^0.0.1
+    vue-icons-plus: ^0.0.2
     vue-router: 4
     vue-tsc: ^2.0.6
   languageName: unknown
@@ -7730,6 +7730,14 @@ __metadata:
   languageName: node
   linkType: hard
 
+"vue-icons-plus@^0.0.2, vue-icons-plus@workspace:packages/vue-icons":
+  version: 0.0.0-use.local
+  resolution: "vue-icons-plus@workspace:packages/vue-icons"
+  peerDependencies:
+    vue: "*"
+  languageName: unknown
+  linkType: soft
+
 "vue-icons-project@workspace:.":
   version: 0.0.0-use.local
   resolution: "vue-icons-project@workspace:."
@@ -7737,14 +7745,6 @@ __metadata:
     eslint: ^8.42.0
     lerna: ^7.0.0
     prettier: ^2.8.8
-  languageName: unknown
-  linkType: soft
-
-"vue-icons@^0.0.1, vue-icons@workspace:packages/vue-icons":
-  version: 0.0.0-use.local
-  resolution: "vue-icons@workspace:packages/vue-icons"
-  peerDependencies:
-    vue: "*"
   languageName: unknown
   linkType: soft
 

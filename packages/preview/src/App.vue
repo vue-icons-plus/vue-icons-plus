@@ -3,7 +3,7 @@ import { onMounted } from "vue";
 import Logo from "./components/Logo.vue";
 import Search from "./components/Search.vue";
 import Sider from "./views/Sider.vue";
-// import { Io5AccessibilityOutline } from "vue-icons/io5";
+// import { Io5AccessibilityOutline } from "vue-icons-plus/io5";
 
 onMounted(async () => {});
 </script>

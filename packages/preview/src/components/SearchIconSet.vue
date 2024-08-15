@@ -1,6 +1,8 @@
 <script setup lang="ts">
-import { onMounted, ref, VueElement, watch } from "vue";
-import { getIcons } from "../useGetIcons";
+import { onMounted, Ref, ref, VueElement, watch } from "vue";
+import { copyTextToClipboard, getIcons } from "../useGetIcons";
+
+type Modules = { [key: string]: VueElement };
 
 const props = defineProps({
   queryId: {
@@ -12,13 +14,16 @@ const props = defineProps({
   },
 });
 
-let modules = {};
-const foundData = ref([]);
+let modules: Modules = {};
+const foundData: Ref<string[]> = ref([]);
 
-const getFoundData = (
-  modules: { [key: string]: VueElement },
-  queryId: string
-) => {
+const currentIcon = ref("");
+const handleClickIcon = (name: string) => {
+  currentIcon.value = name;
+  copyTextToClipboard(`<${name} />`);
+};
+
+const getFoundData = (modules: Modules, queryId: string) => {
   const found = Object.keys(modules).filter((name) => {
     return queryId
       .toLowerCase()
@@ -47,7 +52,11 @@ onMounted(async () => {
 <template>
   <div class="icon-item" v-for="name in foundData">
     <div v-if="modules[name]">
-      <div class="icon">
+      <div
+        class="icon"
+        :class="{ 'is-active': currentIcon === name }"
+        @click="handleClickIcon(name)"
+      >
         <component :is="modules[name]"></component>
       </div>
       <div class="name">{{ name }}</div>

@@ -1,13 +1,14 @@
 <script setup lang="ts">
-import { reactive, onMounted, ref } from "vue";
+import { reactive, onMounted, ref, Ref } from "vue";
+import { IconManifestType } from "vue-icons-plus";
 import IconList from "../components/IconList.vue";
 import { getIcons } from "../useGetIcons";
 import emitter from "../mitt";
-const iconManifest = ref({});
+const iconManifest: Ref<IconManifestType> = ref({});
 const iconModuleMap = reactive(new Map());
 
 onMounted(() => {
-  emitter.on("getCurrentIcon", async (data) => {
+  emitter.on("getCurrentIcon", async (data: IconManifestType) => {
     iconManifest.value = data;
     const iconModule = await getIcons(data.id);
     iconModuleMap.set(data.id, iconModule);
@@ -45,7 +46,7 @@ onMounted(() => {
         <div class="icon-main-example">
           <highlightjs
             language="js"
-            :code="`import { IconName } from 'vue-icons/${iconManifest.id}'`"
+            :code="`import { IconName } from 'vue-icons-plus/${iconManifest.id}'`"
           />
         </div>
         <div v-if="iconModuleMap.has(iconManifest.id)">

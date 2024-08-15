@@ -13,8 +13,16 @@ node_modules
 packages/core/icons
 packages/core/build
 
-packages/vue-icons
-packages/vue-icons_all-files
+packages/vue-icons/icons
+packages/vue-icons/lib
+packages/vue-icons/*.js
+packages/vue-icons/*.d.ts
+packages/vue-icons/*.mjs
 
-README.md
+packages/vue-icons_all-files/icons
+packages/vue-icons_all-files/lib
+packages/vue-icons_all-files/*.js
+packages/vue-icons_all-files/*.d.ts
+packages/vue-icons_all-files/*.mjs
+
 

@@ -1,17 +1,17 @@
 <script setup lang="ts">
 import { onMounted, reactive, ref } from "vue";
-import { IconsManifest } from "vue-icons";
+import { IconsManifest } from "vue-icons-plus";
 import IconList from "../components/IconList.vue";
 import { getIcons } from "../useGetIcons";
-import { SlActionRedo, SlArrowLeft } from "vue-icons/sl";
-import { SlWrench } from "@vue-icons/all-files/icons/sl/SlWrench";
-import { AiFillApi } from "@vue-icons/all-files/icons/ai/AiFillApi";
+import { SlActionRedo, SlArrowLeft } from "vue-icons-plus/sl";
+import { SlWrench } from "@vue-icons-plus/all-files/icons/sl/SlWrench";
+import { AiFillApi } from "@vue-icons-plus/all-files/icons/ai/AiFillApi";
 
-const installCode = `yarn add vue-icons
+const installCode = `yarn add vue-icons-plus
 # or
-npm install vue-icons --save`;
+npm install vue-icons-plus --save`;
 const example = `<script setup lang="ts">
-import { SlActionRedo } from "vue-icons/sl";
+import { SlActionRedo } from "vue-icons-plus/sl";
 <script />
 
 <template>
@@ -38,26 +38,24 @@ onMounted(() => {
 
 <template>
   <div class="main">
-    <h1 class="main-title">Vue Icons</h1>
+    <h1 class="main-title">Vue Icons Plus</h1>
     <p>
-      <a href="https://www.npmjs.com/package/react-icons" rel="nofollow"
+      <a href="https://www.npmjs.com/package/vue-icons-plus" rel="nofollow"
         ><img
-          src="https://img.shields.io/npm/v/react-icons.svg"
+          src="https://img.shields.io/badge/yarn-3.6.1-brightgreen"
           alt="npm"
           height="20" /></a
-      > <a
-        href="https://github.com/react-icons/react-icons/actions"
-        rel="nofollow"
+      > <a href="https://github.com/dwanl/vue-icons/actions" rel="nofollow"
         ><img
-          src="https://github.com/react-icons/react-icons/actions/workflows/nodejs.yml/badge.svg"
+          src="https://img.shields.io/badge/Node.js%20CI-passing-brightgreen"
           alt="GitHub Actions build status"
           height="20"
       /></a>
     </p>
     <p>
-      Include popular icons in your Vue projects easily with vue-icons, which
-      utilizes ES6 imports that allows you to include only the icons that your
-      project is using.
+      Include popular icons in your Vue projects easily with vue-icons-plus,
+      which utilizes ES6 imports that allows you to include only the icons that
+      your project is using.
     </p>
 
     <h2 class="sub-title">Include icon sets (total: {{ allCounts }})</h2>
@@ -121,6 +119,12 @@ onMounted(() => {
           <td><code>className</code></td>
           <td><code>String</code></td>
           <td><code>undefined</code></td>
+          <td></td>
+        </tr>
+        <tr>
+          <td><code>style</code></td>
+          <td><code>undefined</code></td>
+          <td><code>Can overwrite size and color</code></td>
           <td></td>
         </tr>
       </tbody>

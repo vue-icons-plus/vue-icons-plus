@@ -13,7 +13,7 @@ const handleClick = () => {
 
 <template>
   <div class="logo" @click="handleClick">
-    <img src="../assets/vue-icons.svg" alt="vue-icons" width="60" />
+    <img src="../assets/vue-icons.svg" alt="vue-icons-plus" width="60" />
     <span class="text">vue-icons</span>
   </div>
 </template>
