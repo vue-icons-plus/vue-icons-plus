@@ -5,7 +5,7 @@
 [![npm][npm-image]][npm-url]
 
 [npm-image]: https://img.shields.io/badge/yarn-3.6.1-brightgreen
-[npm-url]: https://www.npmjs.com/package/react-icons
+[npm-url]: https://www.npmjs.com/package/vue-icons-plus
 
 Vue icons plus support Vue 3/Vue 2.7+, allowing you to easily import and use them directly in Vue projects.
 
@@ -32,7 +32,7 @@ npm install vue-icons-plus --save
 
 ```
 
-[View the documentation](vue-icons.com) for further usage examples and how to use icons from other packages. _NOTE_: each Icon package has it's own subfolder under `vue-icons` you import from.
+[View the documentation](vue-icons.com) for further usage examples and how to use icons from other packages. _NOTE_: each Icon package has it's own subfolder under `vue-icons-plus` you import from.
 
 For example, to use an icon from **Material Design**, your import would be: `import { ICON_NAME } from 'vue-icons-plus';`
 
