@@ -6,6 +6,7 @@ import { getIcons } from "../useGetIcons";
 import { SlActionRedo, SlArrowLeft } from "vue-icons-plus/sl";
 import { SlWrench } from "@vue-icons-plus/all-files/icons/sl/SlWrench";
 import { AiFillApi } from "@vue-icons-plus/all-files/icons/ai/AiFillApi";
+import { AiFillGithub } from "@vue-icons-plus/all-files/icons/ai/AiFillGithub";
 
 const installCode = `yarn add vue-icons-plus
 # or
@@ -38,7 +39,16 @@ onMounted(() => {
 
 <template>
   <div class="main">
-    <h1 class="main-title">Vue Icons Plus</h1>
+    <div style="display: flex">
+      <h1 class="main-title">Vue Icons Plus</h1>
+      <a
+        href="https://github.com/dwanl/vue-icons"
+        target="__blank"
+        rel="nofollow"
+      >
+        <AiFillGithub style="margin-left: 5px" />
+      </a>
+    </div>
     <p>
       <a href="https://www.npmjs.com/package/vue-icons-plus" rel="nofollow"
         ><img

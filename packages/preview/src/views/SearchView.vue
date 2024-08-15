@@ -10,7 +10,7 @@ const manifest = reactive(IconsManifest);
 watch(
   () => route.query.q,
   (q) => {
-    queryId.value = query.q;
+    queryId.value = q;
   }
 );
 </script>
