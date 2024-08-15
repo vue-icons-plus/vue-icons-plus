@@ -1,11 +1,9 @@
 <script setup lang="ts">
-import { reactive, watch, ref, getCurrentInstance } from "vue";
+import { reactive, watch, ref } from "vue";
 import { useRouter } from "vue-router";
-import { type IconManifestType, IconsManifest } from "vue-icons/lib";
+import { type IconManifestType, IconsManifest } from "vue-icons-plus/lib";
 
 import emitter from "../mitt";
-
-const { proxy } = getCurrentInstance();
 const router = useRouter();
 const iconsManifest = reactive(IconsManifest).sort((a, b) =>
   a.name.localeCompare(b.name)

@@ -5,17 +5,17 @@
   "type": "module",
   "scripts": {
     "dev": "vite",
-    "build": "vue-tsc && vite build",
+    "build": "vite build --mode production",
     "preview": "vite preview"
   },
   "dependencies": {
     "@highlightjs/vue-plugin": "^2.1.0",
-    "@vue-icons/all-files": "^0.0.1",
+    "@vue-icons-plus/all-files": "^0.0.1",
     "highlight.js": "^11.10.0",
     "mitt": "^3.0.1",
     "radash": "^12.1.0",
     "vue": "^3.4.21",
-    "vue-icons": "^0.0.1",
+    "vue-icons-plus": "^0.0.2",
     "vue-router": "4"
   },
   "devDependencies": {

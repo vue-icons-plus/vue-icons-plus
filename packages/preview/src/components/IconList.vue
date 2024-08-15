@@ -15,8 +15,8 @@ const props = defineProps({
 });
 const currentIcon = ref("");
 const handleClickIcon = (name: string) => {
-  copyTextToClipboard(name);
   currentIcon.value = name;
+  copyTextToClipboard(`<${name} />`);
 };
 </script>
 
@@ -30,7 +30,6 @@ const handleClickIcon = (name: string) => {
     >
       <div class="icon" :class="{ 'is-active': currentIcon === key }">
         <component :is="icon"></component>
-        <!-- <Icon :icon="icon" /> -->
       </div>
       <div v-show="!plain" class="name">{{ route.params.id }} {{ key }}</div>
     </div>
