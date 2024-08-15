@@ -50,7 +50,7 @@ npm install @vue-icons-plus/all-files --save
 
 ```jsx
 <script>
-  import { FaBeer } from "@vue-icons-plus/all-files/fa/FaBeer";
+  import { FaBeer } from "@vue-icons-plus/all-files/icons/fa/FaBeer";
 </script>
 
 <template>
