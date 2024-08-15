@@ -1,4 +1,4 @@
-<img src="https://raw.githubusercontent.com/dwanl/vue-icons/main/packages/preview/public/vue-icons.svg" width="120" alt="Vue Icons">
+<img src="https://raw.githubusercontent.com/dwanl/vue-icons/main/packages/preview/public/vue-icons.svg" style="margin-left: 42px;" width="120" alt="Vue Icons">
 
 # [Vue Icons Plus](https://github.com/dwanl/vue-icons)
 
@@ -7,7 +7,7 @@
 [npm-image]: https://img.shields.io/badge/yarn-3.6.1-brightgreen
 [npm-url]: https://www.npmjs.com/package/vue-icons-plus
 
-Vue icons plus support Vue 3/Vue 2.7+, allowing you to easily import and use them directly in Vue projects.
+Vue icons plus icons total 49514, support Vue 3/Vue 2.7+, allowing you to easily import and use them directly in Vue projects.
 
 ## Installation (for standard modern project)
 
@@ -17,11 +17,11 @@ yarn add vue-icons-plus
 npm install vue-icons-plus --save
 ```
 
-## Example usage
+### Example usage
 
 ```jsx
 <script>
-  import { FaBeer } from "vue-icons-plus";
+  import { FaBeer } from "vue-icons-plus/fa";
 </script>
 
 <template>
@@ -34,7 +34,31 @@ npm install vue-icons-plus --save
 
 [View the documentation](vue-icons.com) for further usage examples and how to use icons from other packages. _NOTE_: each Icon package has it's own subfolder under `vue-icons-plus` you import from.
 
-For example, to use an icon from **Material Design**, your import would be: `import { ICON_NAME } from 'vue-icons-plus';`
+For example, to use an icon from **Material Design**, your import would be: `import { ICON_NAME } from 'vue-icons-plus/md';`
+
+## Installation (for meteorjs, gatsbyjs, etc)
+
+If your project grows in size, this option is available. This method has the trade-off that it takes a long time to install the package.
+
+```bash
+yarn add @vue-icons-plus/all-files
+# or
+npm install @vue-icons-plus/all-files --save
+```
+
+### Example usage
+
+```jsx
+<script>
+  import { FaBeer } from "@vue-icons-plus/all-files/fa/FaBeer";
+</script>
+
+<template>
+  <div>
+    <FaBeer />
+  </div>
+</template>
+```
 
 ## Icons
 
@@ -74,7 +98,24 @@ For example, to use an icon from **Material Design**, your import would be: `imp
 
 You can add more icons by submitting pull requests or creating issues.
 
-## Props
+## Configuration
+
+You can change the size, color, and so on of icons through props.
+
+```jsx
+<script>
+  import { FaBeer } from "vue-icons-plus/fa";
+</script>
+
+<template>
+  <div>
+    <FaBeer size="48" color="#333" />
+  </div>
+</template>
+
+```
+
+### Props
 
 | Key         | Default               | Notes                        |
 | ----------- | --------------------- | ---------------------------- |
