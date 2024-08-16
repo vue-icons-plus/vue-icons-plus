@@ -1,18 +1,24 @@
 <script setup lang="ts">
-import { reactive, onMounted, ref, Ref } from "vue";
-import { IconManifestType } from "vue-icons-plus";
+import { reactive, computed, watchEffect } from "vue";
+import { IconsManifest } from "vue-icons-plus";
 import IconList from "../components/IconList.vue";
 import { getIcons } from "../useGetIcons";
-import emitter from "../mitt";
-const iconManifest: Ref<IconManifestType> = ref({});
+
+const props = defineProps({
+  id: String,
+});
+
 const iconModuleMap = reactive(new Map());
 
-onMounted(() => {
-  emitter.on("getCurrentIcon", async (data: IconManifestType) => {
-    iconManifest.value = data;
-    const iconModule = await getIcons(data.id);
-    iconModuleMap.set(data.id, iconModule);
-  });
+const getIconManifest = (id: string) => {
+  return IconsManifest.find((i: any) => i.id === id);
+};
+
+const iconManifest = computed(() => getIconManifest(props.id || ""));
+
+watchEffect(async () => {
+  const iconModule = await getIcons(props.id || "");
+  iconModuleMap.set(props.id, iconModule);
 });
 </script>
 

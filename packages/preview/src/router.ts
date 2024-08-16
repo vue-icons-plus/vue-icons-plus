@@ -17,14 +17,14 @@ export const router = createRouter({
     {
       path: '/icons/:id',
       name: 'icons',
-      component: () => import('./views/IconsView.vue'),
+      component: () => import('./views/Icons.vue'),
       meta: { transition: 'slide-left' },
       props: true
     },
     {
       path: '/icons/search/',
       name: 'search',
-      component: () => import('./views/SearchView.vue'),
+      component: () => import('./views/_SearchView.vue'),
       meta: { transition: 'slide-left' },
     }
   ]
