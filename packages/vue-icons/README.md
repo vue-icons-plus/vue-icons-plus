@@ -17,11 +17,31 @@ yarn add vue-icons-plus
 npm install vue-icons-plus --save
 ```
 
-### Example usage
+### Example usage for Vue 3
 
 ```jsx
 <script>
   import { FaBeer } from "vue-icons-plus/fa";
+</script>
+
+<template>
+  <div>
+    <FaBeer />
+  </div>
+</template>
+
+```
+
+### Example usage for Vue ^2.7
+
+```jsx
+<script>
+  import { FaBeer } from "vue-icons-plus/fa";
+  export defautls {
+    components: {
+      FaBeer
+    }
+  }
 </script>
 
 <template>
@@ -46,7 +66,7 @@ yarn add @vue-icons-plus/all-files
 npm install @vue-icons-plus/all-files --save
 ```
 
-### Example usage
+### Example usage for Vue 3
 
 ```jsx
 <script>
@@ -58,6 +78,26 @@ npm install @vue-icons-plus/all-files --save
     <FaBeer />
   </div>
 </template>
+```
+
+### Example usage for Vue ^2.7
+
+```jsx
+<script>
+  import { FaBeer } from "@vue-icons-plus/all-files/icons/fa/FaBeer";
+  export defautls {
+    components: {
+      FaBeer
+    }
+  }
+</script>
+
+<template>
+  <div>
+    <FaBeer />
+  </div>
+</template>
+
 ```
 
 ## Icons
