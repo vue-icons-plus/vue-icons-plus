@@ -37,7 +37,7 @@ npm install vue-icons-plus --save
 ```jsx
 <script>
   import { FaBeer } from "vue-icons-plus/fa";
-  export defautls {
+  export default {
     components: {
       FaBeer
     }

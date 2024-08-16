@@ -7,17 +7,8 @@ import { SlActionRedo, SlArrowLeft } from "vue-icons-plus/sl";
 import { SlWrench } from "@vue-icons-plus/all-files/icons/sl/SlWrench";
 import { AiFillApi } from "@vue-icons-plus/all-files/icons/ai/AiFillApi";
 import { AiFillGithub } from "@vue-icons-plus/all-files/icons/ai/AiFillGithub";
+import { installCode, example } from "../example";
 
-const installCode = `yarn add vue-icons-plus
-# or
-npm install vue-icons-plus --save`;
-const example = `<script setup lang="ts">
-import { SlActionRedo } from "vue-icons-plus/sl";
-<script />
-
-<template>
-  <SlActionRedo />
-</template>`;
 const iconsManifest = reactive(IconsManifest);
 const iconModulesMap = reactive(new Map());
 const moduleCounts: { [key: string]: number } = reactive({});
@@ -81,8 +72,10 @@ onMounted(() => {
     </div>
     <h2 class="sub-title">Installation</h2>
     <highlightjs lang="bash" :code="installCode" />
-    <h2 class="sub-title">Usage</h2>
-    <highlightjs language="js" :code="example" />
+    <h2 class="sub-title">Usage for Vue 3</h2>
+    <highlightjs language="js" :code="example.vue3" />
+    <h2 class="sub-title">Usage for Vue ^2.7</h2>
+    <highlightjs language="js" :code="example.vue2" />
     <h2 class="sub-title">Demo</h2>
     <div class="main-demo">
       <SlActionRedo :size="12" />
