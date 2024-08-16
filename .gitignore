@@ -10,7 +10,6 @@
 .yarn/cache
 #.pnp.*
 node_modules
-docs
 packages/core/icons
 packages/core/build
 
