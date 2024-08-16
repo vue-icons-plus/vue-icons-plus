@@ -25,4 +25,6 @@ packages/vue-icons_all-files/*.js
 packages/vue-icons_all-files/*.d.ts
 packages/vue-icons_all-files/*.mjs
 
+docs
+
 
