@@ -24,7 +24,7 @@ export const router = createRouter({
     {
       path: '/icons/search/',
       name: 'search',
-      component: () => import('./views/_SearchView.vue'),
+      component: () => import('./views/SearchView.vue'),
       meta: { transition: 'slide-left' },
     }
   ]
