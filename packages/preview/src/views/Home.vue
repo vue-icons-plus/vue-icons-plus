@@ -81,6 +81,14 @@ onMounted(() => {
       your project is using.
     </p>
 
+    <h2 class="sub-title">Change Log</h2>
+    <p>
+      Add ByteDance Icon Library
+      <a href="https://iconpark.oceanengine.com/official" target="_blank"
+        >IconPark</a
+      >
+      (2024-08-19)
+    </p>
     <h2 class="sub-title">Include icon sets (total: {{ allCounts }})</h2>
     <div class="main-content">
       <div
@@ -175,10 +183,9 @@ onMounted(() => {
   font-size: 2.2rem;
 }
 .sub-title {
-  font-weight: 400;
-  margin-top: 0;
+  font-weight: 500;
   margin-bottom: var(--space-2);
-  padding-top: var(--space-1);
+  padding-top: var(--space-2);
 }
 .main-content {
   display: grid;
