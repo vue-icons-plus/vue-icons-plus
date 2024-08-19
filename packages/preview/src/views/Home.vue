@@ -5,9 +5,10 @@ import { IconManifestType, IconsManifest } from "vue-icons-plus";
 import IconList from "../components/IconList.vue";
 import { getIcons } from "../useGetIcons";
 import { SlActionRedo, SlArrowLeft } from "vue-icons-plus/sl";
-import { SlWrench } from "@vue-icons-plus/all-files/icons/sl/SlWrench";
+import { FcAbout } from "@vue-icons-plus/all-files/icons/fc/FcAbout";
 import { AiFillApi } from "@vue-icons-plus/all-files/icons/ai/AiFillApi";
 import { AiFillGithub } from "@vue-icons-plus/all-files/icons/ai/AiFillGithub";
+import { Fa6Npm } from "@vue-icons-plus/all-files/icons/fa6/Fa6Npm";
 import { installCode, example } from "../example";
 import emitter from "../mitt";
 
@@ -45,11 +46,18 @@ onMounted(() => {
     <div style="display: flex">
       <h1 class="main-title">Vue Icons Plus</h1>
       <a
-        href="https://github.com/dwanl/vue-icons"
+        href="https://github.com/vue-icons-plus/vue-icons-plus"
         target="__blank"
         rel="nofollow"
       >
-        <AiFillGithub style="margin-left: 5px" />
+        <AiFillGithub style="margin: 0 6px" />
+      </a>
+      <a
+        href="https://www.npmjs.com/package/vue-icons-plus"
+        target="__blank"
+        rel="nofollow"
+      >
+        <Fa6Npm />
       </a>
     </div>
     <p>
@@ -58,7 +66,9 @@ onMounted(() => {
           src="https://img.shields.io/badge/yarn-3.6.1-brightgreen"
           alt="npm"
           height="20" /></a
-      > <a href="https://github.com/dwanl/vue-icons/actions" rel="nofollow"
+      > <a
+        href="https://github.com/vue-icons-plus/vue-icons-plus/actions"
+        rel="nofollow"
         ><img
           src="https://img.shields.io/badge/Node.js%20CI-passing-brightgreen"
           alt="GitHub Actions build status"
@@ -104,10 +114,10 @@ onMounted(() => {
       <SlArrowLeft :size="24" />
       <SlArrowLeft :size="36" />
       <SlArrowLeft :size="48" />
-      <SlWrench :size="12" />
-      <SlWrench :size="24" />
-      <SlWrench :size="36" />
-      <SlWrench :size="48" />
+      <FcAbout :size="12" />
+      <FcAbout :size="24" />
+      <FcAbout :size="36" />
+      <FcAbout :size="48" />
       <AiFillApi :size="12" />
       <AiFillApi :size="24" />
       <AiFillApi :size="36" />
