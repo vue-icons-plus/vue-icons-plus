@@ -6,11 +6,11 @@
   "license": "MIT",
   "packageManager": "yarn@3.6.0",
   "sideEffects": false,
-  "repository": "https://github.com/vue-icons-plus/vue-icons-plus.git",
+  "repository": "https://github.com/dwanl/vue-icons.git",
   "bugs": {
-    "url": "https://github.com/vue-icons-plus/vue-icons-plus/issues/issues"
+    "url": "https://github.com/dwanl/vue-icons/issues"
   },
-  "homepage": "https://www.vue-icons.com",
+  "homepage": "https://github.com/dwanl/vue-icons#readme",
   "main": "./lib/index.js",
   "module": "./lib/index.mjs",
   "types": "./lib/index.d.ts",
