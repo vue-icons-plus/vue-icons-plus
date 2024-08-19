@@ -10,7 +10,7 @@
   "bugs": {
     "url": "https://github.com/dwanl/vue-icons/issues"
   },
-  "homepage": "https://github.com/dwanl/vue-icons#readme",
+  "homepage": "https://www.vue-icons.com",
   "main": "./lib/index.js",
   "module": "./lib/index.mjs",
   "types": "./lib/index.d.ts",
