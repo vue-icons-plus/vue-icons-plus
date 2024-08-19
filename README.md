@@ -1,6 +1,6 @@
 <img src="https://raw.githubusercontent.com/dwanl/vue-icons/main/packages/preview/public/vue-icons.svg" style="margin-left: 42px;" width="120" alt="Vue Icons">
 
-# [Vue Icons Plus](https://github.com/dwanl/vue-icons)
+# [Vue Icons Plus](https://github.com/vue-icons-plus/vue-icons-plus)
 
 [![npm][npm-image]][npm-url]
 

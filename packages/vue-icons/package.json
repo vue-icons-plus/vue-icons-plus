@@ -6,9 +6,9 @@
   "license": "MIT",
   "packageManager": "yarn@3.6.0",
   "sideEffects": false,
-  "repository": "https://github.com/dwanl/vue-icons.git",
+  "repository": "https://github.com/vue-icons-plus/vue-icons-plus.git",
   "bugs": {
-    "url": "https://github.com/dwanl/vue-icons/issues"
+    "url": "https://github.com/vue-icons-plus/vue-icons-plus/issues/issues"
   },
   "homepage": "https://www.vue-icons.com",
   "main": "./lib/index.js",

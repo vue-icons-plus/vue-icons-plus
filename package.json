@@ -6,7 +6,7 @@
     "packages/*"
   ],
   "description": "SVG Vue icons of popular icon packs using ES6 imports",
-  "repository": "https://github.com/dwanl/vue-icons.git",
+  "repository": "https://github.com/vue-icons-plus/vue-icons-plus.git",
   "author": "DwanL <253929992@qq.com>",
   "license": "MIT",
   "scripts": {
