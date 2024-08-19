@@ -1,18 +1,17 @@
 <script setup lang="ts">
-import { reactive, watch, ref } from "vue";
+import { reactive, watch, ref, onMounted } from "vue";
 import { useRouter } from "vue-router";
 import { type IconManifestType, IconsManifest } from "vue-icons-plus/lib";
-
 import emitter from "../mitt";
+
 const router = useRouter();
+const currentId = ref("");
+
 const iconsManifest = reactive(IconsManifest).sort((a, b) =>
   a.name.localeCompare(b.name)
 );
 
-const currentId = ref("");
-
 const handleClick = (icon: IconManifestType) => {
-  emitter.emit("getCurrentIcon", icon);
   currentId.value = icon.id;
 };
 
@@ -24,6 +23,12 @@ watch(
     }
   }
 );
+
+onMounted(() => {
+  emitter.on("getActiveId", (id: string) => {
+    currentId.value = id;
+  });
+});
 </script>
 
 <template>
