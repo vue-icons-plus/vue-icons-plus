@@ -1,6 +1,7 @@
 <script setup lang="ts">
 import { onMounted, reactive, ref } from "vue";
-import { IconsManifest } from "vue-icons-plus";
+import { useRouter } from "vue-router";
+import { IconManifestType, IconsManifest } from "vue-icons-plus";
 import IconList from "../components/IconList.vue";
 import { getIcons } from "../useGetIcons";
 import { SlActionRedo, SlArrowLeft } from "vue-icons-plus/sl";
@@ -8,11 +9,22 @@ import { SlWrench } from "@vue-icons-plus/all-files/icons/sl/SlWrench";
 import { AiFillApi } from "@vue-icons-plus/all-files/icons/ai/AiFillApi";
 import { AiFillGithub } from "@vue-icons-plus/all-files/icons/ai/AiFillGithub";
 import { installCode, example } from "../example";
+import emitter from "../mitt";
 
+const router = useRouter();
 const iconsManifest = reactive(IconsManifest);
 const iconModulesMap = reactive(new Map());
 const moduleCounts: { [key: string]: number } = reactive({});
 const allCounts = ref(0);
+const currentId = ref("");
+
+const handleClick = (icon: IconManifestType) => {
+  currentId.value = icon.id;
+  emitter.emit("getActiveId", icon.id);
+  router.push({
+    path: `/icons/${icon.id}`,
+  });
+};
 
 onMounted(() => {
   iconsManifest.forEach(async (item) => {
@@ -61,7 +73,13 @@ onMounted(() => {
 
     <h2 class="sub-title">Include icon sets (total: {{ allCounts }})</h2>
     <div class="main-content">
-      <div class="icon-set" v-for="item in IconsManifest" :key="item.id">
+      <div
+        class="icon-set"
+        :class="{ 'is-active': currentId === item.id }"
+        v-for="item in IconsManifest"
+        :key="item.id"
+        @click="handleClick(item)"
+      >
         <div class="name">{{ item.name }}</div>
         <div v-if="iconModulesMap.has(item.id)">
           <div class="describe">{{ moduleCounts[item.id] }} icons</div>
@@ -159,12 +177,19 @@ onMounted(() => {
   margin-bottom: var(--space-2);
 }
 .icon-set {
+  cursor: pointer;
   color: var(--color-black);
   background: var(--color-white);
   padding: 5px 8px 8px;
   border-radius: var(--border-radius-md);
+  border: 2px solid transparent;
   box-shadow: 0 1px 3px #0000001a, 0 1px 2px #0000000f;
   transition: background-color 0.15s ease;
+  &:hover,
+  &.is-active {
+    border-color: rgba(var(--color-brand-rgb), 0.5);
+    background: rgba(var(--color-brand-rgb), 0.05);
+  }
 }
 .icon-set .name {
   font-size: 1.2rem;

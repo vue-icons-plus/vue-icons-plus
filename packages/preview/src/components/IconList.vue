@@ -15,6 +15,7 @@ const props = defineProps({
 });
 const currentIcon = ref("");
 const handleClickIcon = (name: string) => {
+  if (props.plain) return;
   currentIcon.value = name;
   copyTextToClipboard(`<${name} />`);
 };
