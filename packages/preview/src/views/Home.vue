@@ -5,6 +5,7 @@ import { IconManifestType, IconsManifest } from "vue-icons-plus";
 import IconList from "../components/IconList.vue";
 import { getIcons } from "../useGetIcons";
 import { SlActionRedo, SlArrowLeft } from "vue-icons-plus/sl";
+import { IpLoadingOne } from "vue-icons-plus/ip";
 import { FcAbout } from "@vue-icons-plus/all-files/icons/fc/FcAbout";
 import { AiFillApi } from "@vue-icons-plus/all-files/icons/ai/AiFillApi";
 import { AiFillGithub } from "@vue-icons-plus/all-files/icons/ai/AiFillGithub";
@@ -57,7 +58,7 @@ onMounted(() => {
         target="__blank"
         rel="nofollow"
       >
-        <Fa6Npm />
+        <Fa6Npm class="demo-icon" />
       </a>
     </div>
     <p>
@@ -103,7 +104,7 @@ onMounted(() => {
           <div class="describe">{{ moduleCounts[item.id] }} icons</div>
           <IconList :iconList="iconModulesMap.get(item.id)" plain />
         </div>
-        <span v-else class="describe">下载中</span>
+        <div v-else class="describe">loading...</div>
       </div>
     </div>
     <h2 class="sub-title">Installation</h2>
@@ -195,6 +196,7 @@ onMounted(() => {
 }
 .icon-set {
   cursor: pointer;
+  min-height: 80px;
   color: var(--color-black);
   background: var(--color-white);
   padding: 5px 8px 8px;
@@ -212,6 +214,8 @@ onMounted(() => {
   font-size: 1.2rem;
 }
 .icon-set .describe {
+  margin-top: 3px;
+  margin-bottom: 6px;
   font-size: 0.8rem;
   color: var(--color-gray-4);
 }

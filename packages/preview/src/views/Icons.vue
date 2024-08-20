@@ -1,6 +1,7 @@
 <script setup lang="ts">
 import { reactive, computed, watchEffect } from "vue";
 import { IconsManifest } from "vue-icons-plus";
+import { IpLoadingOne } from "vue-icons-plus/ip";
 import IconList from "../components/IconList.vue";
 import { getIcons } from "../useGetIcons";
 
@@ -57,7 +58,9 @@ watchEffect(async () => {
       <div v-if="iconModuleMap.has(iconManifest.id)">
         <IconList :iconList="iconModuleMap.get(iconManifest.id)" />
       </div>
-      <div v-else class="loading">加载中...</div>
+      <div v-else class="loading">
+        <IpLoadingOne class="icon-loading" size="18" color="#c0c0c0" />
+      </div>
     </div>
   </div>
 </template>
