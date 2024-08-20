@@ -40,7 +40,7 @@ const handleClickIcon = (name: string) => {
 <style scoped>
 .icon-box-plain {
   line-height: 1rem;
-  margin-top: 7px;
+  /* margin-top: 7px; */
   display: grid;
   grid: 1fr / repeat(20, 1em);
   gap: 5px;

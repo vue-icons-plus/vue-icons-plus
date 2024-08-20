@@ -54,3 +54,12 @@ code, kbd, pre, samp {
   font-size: 1em;
 }
 
+.icon-loading {
+  animation: loadingCircle 1s linear infinite;
+}
+@keyframes loadingCircle {
+  100% {
+    transform: rotate(1turn);
+  }
+}
+
