@@ -5,7 +5,6 @@ import { IconManifestType, IconsManifest } from "vue-icons-plus";
 import IconList from "../components/IconList.vue";
 import { getIcons } from "../useGetIcons";
 import { SlActionRedo, SlArrowLeft } from "vue-icons-plus/sl";
-import { IpLoadingOne } from "vue-icons-plus/ip";
 import { FcAbout } from "@vue-icons-plus/all-files/icons/fc/FcAbout";
 import { AiFillApi } from "@vue-icons-plus/all-files/icons/ai/AiFillApi";
 import { AiFillGithub } from "@vue-icons-plus/all-files/icons/ai/AiFillGithub";

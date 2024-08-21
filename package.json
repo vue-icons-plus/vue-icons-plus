@@ -13,7 +13,9 @@
     "lint": "yarn eslint .",
     "format": "prettier --write --ignore-unknown .",
     "dev": "yarn workspace preview run dev",
-    "build": "yarn workspace core run build"
+    "build": "yarn workspace core run build",
+    "test:dev": "yarn workspace test run dev",
+    "test:unit": "yarn workspace test run test:unit"
   },
   "packageManager": "yarn@3.6.1",
   "devDependencies": {

@@ -1,0 +1,33 @@
+{
+  "name": "test",
+  "version": "0.0.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "run-p type-check \"build-only {@}\" --",
+    "preview": "vite preview",
+    "test:unit": "vitest",
+    "build-only": "vite build",
+    "type-check": "vue-tsc --build --force"
+  },
+  "dependencies": {
+    "@vue-icons-plus/all-files": "workspace:*",
+    "vue": "^3.4.29",
+    "vue-icons-plus": "workspace:*"
+  },
+  "devDependencies": {
+    "@tsconfig/node20": "^20.1.4",
+    "@types/jsdom": "^21.1.7",
+    "@types/node": "^20.14.5",
+    "@vitejs/plugin-vue": "^5.0.5",
+    "@vue/test-utils": "^2.4.6",
+    "@vue/tsconfig": "^0.5.1",
+    "jsdom": "^24.1.0",
+    "npm-run-all2": "^6.2.0",
+    "typescript": "~5.4.0",
+    "vite": "^5.3.1",
+    "vitest": "^1.6.0",
+    "vue-tsc": "^2.0.21"
+  }
+}
