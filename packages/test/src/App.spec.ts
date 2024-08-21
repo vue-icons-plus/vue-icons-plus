@@ -8,7 +8,7 @@ import App from './App.vue'
 
 
 describe('App', () => {
-  it('asserts correct props "size" are passed', () => {
+  it('asserts correct props are passed', () => {
     const wrapper = mount(App)
     expect(wrapper.getComponent(AiFillAccountBook).vm.color).toBe('red')
     expect(wrapper.getComponent(AiFillAccountBook).props()).toEqual({ color: 'red', className: undefined, size: 24 })
