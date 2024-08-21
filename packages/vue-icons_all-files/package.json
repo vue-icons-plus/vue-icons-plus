@@ -14,6 +14,14 @@
   "main": "./lib/index.js",
   "module": "./lib/index.mjs",
   "types": "./lib/index.d.ts",
+  "keywords": [
+    "Vue.js",
+    "SVG",
+    "vue-icons",
+    "vue-icons-plus",
+    "vue-components",
+    "icons"
+  ],
   "peerDependencies": {
     "vue": "*"
   }

@@ -17,6 +17,14 @@
   "peerDependencies": {
     "vue": "*"
   },
+  "keywords": [
+    "Vue.js",
+    "SVG",
+    "vue-icons",
+    "vue-icons-plus",
+    "vue-components",
+    "icons"
+  ],
   "exports": {
     ".": {
       "types": "./index.d.ts",
