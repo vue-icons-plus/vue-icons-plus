@@ -29,15 +29,15 @@ async function main() {
       ICONS: path.resolve(_rootDir, "../vue-icons/icons"),
       LIB: path.resolve(_rootDir, "../vue-icons/lib"),
     };
-    await task("vue-icons initialize", async () => {
-      await taskIcons.dirInit(iconsOpt);
-      await taskCommon.writeDistEntryPoints(iconsOpt);
-    });
-    await task("vue-icons write icons", async () => {
-      await Promise.all(
-        icons.map((icon) => taskIcons.writeIconModule(icon, iconsOpt)),
-      );
-    });
+    // await task("vue-icons initialize", async () => {
+    //   await taskIcons.dirInit(iconsOpt);
+    //   await taskCommon.writeDistEntryPoints(iconsOpt);
+    // });
+    // await task("vue-icons write icons", async () => {
+    //   await Promise.all(
+    //     icons.map((icon) => taskIcons.writeIconModule(icon, iconsOpt)),
+    //   );
+    // });
 
     // lib: @vue-icons-plus/all-filess
     // dir: vue-icons_all-files
@@ -47,15 +47,15 @@ async function main() {
       ICONS: path.resolve(_rootDir, "../vue-icons_all-files/icons"),
       LIB: path.resolve(_rootDir, "../vue-icons_all-files/lib"),
     };
-    await task("vue-icons_all-files initialize", async () => {
-      await taskAllFiles.dirInit(allFilesOpt);
-      await taskCommon.writeDistEntryPoints(allFilesOpt);
-    });
-    await task("vue-icons_all-files write files", async () => {
-      await Promise.all(
-        icons.map((icon) => taskAllFiles.writeFiles(icon, allFilesOpt))
-      )
-    });
+    // await task("vue-icons_all-files initialize", async () => {
+    //   await taskAllFiles.dirInit(allFilesOpt);
+    //   await taskCommon.writeDistEntryPoints(allFilesOpt);
+    // });
+    // await task("vue-icons_all-files write files", async () => {
+    //   await Promise.all(
+    //     icons.map((icon) => taskAllFiles.writeFiles(icon, allFilesOpt))
+    //   )
+    // });
 
     // write license and copy readme
     await task("write license and copy readme", async () => {
@@ -66,18 +66,18 @@ async function main() {
     })
 
 
-    // write files to lib
-    await task("core build common library", async () => {
-      await taskCommon.buildLib(iconsOpt);
-      await taskCommon.copyLib(iconsOpt);
-      await taskCommon.copyLib(allFilesOpt);
-    });
+    // // write files to lib
+    // await task("core build common library", async () => {
+    //   await taskCommon.buildLib(iconsOpt);
+    //   await taskCommon.copyLib(iconsOpt);
+    //   await taskCommon.copyLib(allFilesOpt);
+    // });
 
 
-    // write to VERSIONS file
-    await task("core write icon versions", async () => {
-      await taskCommon.writeIconVersions(allFilesOpt);
-    });
+    // // write to VERSIONS file
+    // await task("core write icon versions", async () => {
+    //   await taskCommon.writeIconVersions(allFilesOpt);
+    // });
 
     console.log("done");
   } catch (error) {

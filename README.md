@@ -57,7 +57,7 @@ npm install vue-icons-plus --save
 ```jsx
 <template>
   <view>
-    <AiFillAccountBook />
+    <BiSearch />
   </view>
 </template>
 
