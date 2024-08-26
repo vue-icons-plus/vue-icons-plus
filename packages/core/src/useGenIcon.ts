@@ -1,4 +1,4 @@
-import { h } from "vue";
+import { h, version } from "vue";
 import { IconTree } from './IconTree.d'
 export const useGenIcon = (data: IconTree) => {
   return {
@@ -23,16 +23,26 @@ export const useGenIcon = (data: IconTree) => {
       const renderSvgElements = el => {
         return h(
           el.tag,
-          {
-            ...conf,
-            ...el.attr,
-            ...{ height: size, width: size, className, color: color },
-          },
+          version.startsWith('2.7.')
+            ? {
+              attrs: {
+                ...conf,
+                ...el.attr,
+                height: size,
+                width: size,
+                className,
+                color: color
+              }
+            } : {
+              ...conf,
+              ...el.attr,
+              ...{ height: size, width: size, className, color: color },
+            },
           el.child.map((node) => {
             if (node.child && node.child.length > 0) {
               return renderSvgElements(node);
             } else {
-              return h(node.tag, { ...node.attr });
+              return h(node.tag, version.startsWith('2.7.') ? { attrs: { ...node.attr } } : { ...node.attr });
             }
           })
         );

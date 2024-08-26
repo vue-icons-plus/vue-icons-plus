@@ -2,7 +2,7 @@ import { describe, it, expect } from 'vitest'
 import { mount } from '@vue/test-utils'
 import { AiFillAccountBook } from "vue-icons-plus/ai";
 import { IoAddCircleSharp } from "vue-icons-plus/io";
-import { CgAbstract } from "@vue-icons-plus/all-files/icons/cg/CgAbstract";
+import { CgAbstract } from "@vue-icons-plus/all-files/cg/CgAbstract";
 
 import App from './App.vue'
 

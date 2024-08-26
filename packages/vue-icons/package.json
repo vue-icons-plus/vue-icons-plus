@@ -1,7 +1,7 @@
 {
   "name": "vue-icons-plus",
-  "version": "0.0.9",
-  "description": "SVG Vue icons of popular icon packs using ES6 imports",
+  "version": "0.1.2",
+  "description": "SVG vue icons of popular icon packs using ES6 imports",
   "author": "DwanL <253929992@qq.com>",
   "license": "MIT",
   "packageManager": "yarn@3.6.0",
@@ -39,10 +39,10 @@
       "default": "./lib/index.mjs"
     },
     "./*": {
-      "types": "./icons/*/index.d.ts",
-      "require": "./icons/*/index.js",
-      "import": "./icons/*/index.mjs",
-      "default": "./icons/*/index.mjs"
+      "types": "./*/index.d.ts",
+      "require": "./*/index.js",
+      "import": "./*/index.mjs",
+      "default": "./*/index.mjs"
     }
   }
 }

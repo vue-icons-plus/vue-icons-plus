@@ -21,7 +21,8 @@ async function task(name: string, fn: () => Promise<void> | void) {
 
 async function main() {
   try {
-    // lib: vue-icons
+    // lib: vue-icons-plus
+    // dir: vue-icons
     const iconsOpt: TaskContext = {
       rootDir: _rootDir,
       DIST: path.resolve(_rootDir, "../vue-icons"),
@@ -42,20 +43,21 @@ async function main() {
 
 
 
-    // // lib: vue-icons/all-files
+    // lib: @vue-icons-plus/all-filess
+    // dir: vue-icons_all-files
     const allFilesOpt: TaskContext = {
       rootDir: _rootDir,
       DIST: path.resolve(_rootDir, "../vue-icons_all-files"),
       ICONS: path.resolve(_rootDir, "../vue-icons_all-files/icons"),
       LIB: path.resolve(_rootDir, "../vue-icons_all-files/lib"),
     };
-    await task("vue-icons/all-files initialize", async () => {
+    await task("vue-icons_all-files initialize", async () => {
       await taskAllFiles.dirInit(allFilesOpt);
       await taskCommon.writeDistEntryPoints(allFilesOpt);
       await taskCommon.writeLicense(allFilesOpt);
       await taskCommon.copyReadme(allFilesOpt);
     });
-    await task("vue-icons/all-files write files", async () => {
+    await task("vue-icons_all-files write files", async () => {
       await Promise.all(
         icons.map((icon) => taskAllFiles.writeFiles(icon, allFilesOpt))
       )

@@ -8,32 +8,32 @@ import { iconRowTemplate } from "./templates";
 import { getIconFiles, rmDirRecursive, convertIconData } from "./logics";
 import { TaskContext, IconDefinition } from "./_types";
 
-export async function dirInit({ DIST, LIB, ICONS }: TaskContext) {
+export async function dirInit({ DIST, LIB }: TaskContext) {
   const ignore = (err: any) => {
     if (err?.code === "EEXIST") return;
     throw err;
   };
-  await rmDirRecursive(ICONS).catch((err) => {
+  await rmDirRecursive(DIST).catch((err) => {
     if (err.code === "ENOENT") return;
     throw err;
   });
-  await fs.mkdir(ICONS, { recursive: true }).catch(ignore);
+  await fs.mkdir(DIST, { recursive: true }).catch(ignore);
   await fs.mkdir(LIB).catch(ignore);
 
-  const initFiles = ["index.d.ts", "index.js", "index.mjs"];
-
-  const write = (dir: string, filePath: string[], str: string) =>
-    fs.writeFile(path.resolve(dir, ...filePath), str, "utf8").catch(ignore);
-
   for (const icon of icons) {
-    await fs.mkdir(path.resolve(ICONS, icon.id)).catch(ignore);
+    await fs.mkdir(path.resolve(DIST, icon.id)).catch(ignore);
   }
+  // const initFiles = ["index.d.ts", "index.js", "index.mjs"];
+
+  // const write = (dir: string, filePath: string[], str: string) =>
+  //   fs.writeFile(path.resolve(dir, ...filePath), str, "utf8").catch(ignore);
+
   // for (const file of initFiles) {
   //   await write(DIST, [file], "// THIS FILE IS AUTO GENERATED\n");
   // }
 }
 
-export async function writeFiles(icon: IconDefinition, { ICONS }: TaskContext, version = 'vue3') {
+export async function writeFiles(icon: IconDefinition, { DIST }: TaskContext, version = 'vue3') {
   const exists = new Set(); // for remove duplicate
   for (const content of icon.contents) {
     const files = await getIconFiles(content);
@@ -52,30 +52,30 @@ export async function writeFiles(icon: IconDefinition, { ICONS }: TaskContext, v
       exists.add(componentName);
 
 
-      const modHeader = `// THIS FILE IS AUTO GENERATED\nimport { useGenIcon } from "../../lib";\n`;
+      const modHeader = `// THIS FILE IS AUTO GENERATED\nimport { useGenIcon } from "../lib";\n`;
       const modRes = iconRowTemplate(icon, componentName, iconData, "module")
       await fs.writeFile(
-        path.resolve(ICONS, icon.id, `${componentName}.mjs`),
+        path.resolve(DIST, icon.id, `${componentName}.mjs`),
         modHeader + modRes,
         "utf8",
       );
 
 
       const comHeader =
-        `// THIS FILE IS AUTO GENERATED\nconst useGenIcon = require('../../lib').useGenIcon;\n`;
+        `// THIS FILE IS AUTO GENERATED\nconst useGenIcon = require('../lib').useGenIcon;\n`;
       const comRes = iconRowTemplate(icon, componentName, iconData, "common")
       await fs.writeFile(
-        path.resolve(ICONS, icon.id, `${componentName}.js`),
+        path.resolve(DIST, icon.id, `${componentName}.js`),
         comHeader + comRes,
         "utf8",
       );
 
 
       const dtsHeader =
-        "// THIS FILE IS AUTO GENERATED\nimport { IconType } from '../../lib';\n";
+        "// THIS FILE IS AUTO GENERATED\nimport { IconType } from '../lib';\n";
       const dtsRes = iconRowTemplate(icon, componentName, iconData, "dts")
       await fs.writeFile(
-        path.resolve(ICONS, icon.id, `${componentName}.d.ts`),
+        path.resolve(DIST, icon.id, `${componentName}.d.ts`),
         dtsHeader + dtsRes,
         "utf8",
       );
