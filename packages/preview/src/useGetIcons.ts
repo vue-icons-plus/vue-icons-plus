@@ -1,6 +1,6 @@
 export const getIcons = async (id: string) => {
   const modules = await import(
-    `../../vue-icons/icons/${id}/index.mjs`
+    `../../vue-icons/${id}/index.mjs`
   );
   return modules
 };

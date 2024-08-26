@@ -8,13 +8,13 @@ import { svgoConfig } from "./svgo";
 import { optimize as svgoOptimize } from "svgo";
 import { IconDefinition, TaskContext } from "./_types";
 
-export async function dirInit({ DIST, LIB, ICONS }: TaskContext, version = 'vue3') {
+export async function dirInit({ DIST, LIB }: TaskContext, version = 'vue3') {
   const ignore = (err: any) => {
     if (err?.code === "EEXIST") return;
     throw err;
   };
-  await rmDirRecursive(ICONS);
-  await fs.mkdir(ICONS, { recursive: true }).catch(ignore);
+  await rmDirRecursive(DIST);
+  await fs.mkdir(DIST, { recursive: true }).catch(ignore);
   await fs.mkdir(LIB).catch(ignore);
 
   const write = (dir: string, filePath: string[], str: string) =>
@@ -26,34 +26,34 @@ export async function dirInit({ DIST, LIB, ICONS }: TaskContext, version = 'vue3
   // }
 
   for (const icon of icons) {
-    await fs.mkdir(path.resolve(ICONS, icon.id)).catch(ignore);
+    await fs.mkdir(path.resolve(DIST, icon.id)).catch(ignore);
 
     const comHeader = `// THIS FILE IS AUTO GENERATED\nconst useGenIcon = require('../lib').useGenIcon;\n`
     await write(
-      ICONS,
+      DIST,
       [icon.id, "index.js"],
       comHeader
     );
 
 
-    const modHeader = `// THIS FILE IS AUTO GENERATED\n import { useGenIcon } from "../../lib";\n`
+    const modHeader = `// THIS FILE IS AUTO GENERATED\n import { useGenIcon } from "../lib";\n`
     await write(
-      ICONS,
+      DIST,
       [icon.id, "index.mjs"],
       modHeader
     );
 
 
-    const dtsHeader = `// THIS FILE IS AUTO GENERATED\nimport { IconType } from "../../lib";\n`
+    const dtsHeader = `// THIS FILE IS AUTO GENERATED\nimport { IconType } from "../lib";\n`
     await write(
-      ICONS,
+      DIST,
       [icon.id, "index.d.ts"],
       dtsHeader,
     );
 
 
     await write(
-      ICONS,
+      DIST,
       [icon.id, "package.json"],
       JSON.stringify(
         {
@@ -69,7 +69,7 @@ export async function dirInit({ DIST, LIB, ICONS }: TaskContext, version = 'vue3
 
 export async function writeIconModule(
   icon: IconDefinition,
-  { DIST, LIB, rootDir, ICONS }: TaskContext,
+  { DIST, LIB, rootDir }: TaskContext,
   version = 'vue3',
 ) {
   const exists = new Set(); // for remove duplicate
@@ -95,7 +95,7 @@ export async function writeIconModule(
       // write like: module/fa/index.mjs
       const modRes = iconRowTemplate(icon, name, iconData, "module");
       await fs.appendFile(
-        path.resolve(ICONS, icon.id, "index.mjs"),
+        path.resolve(DIST, icon.id, "index.mjs"),
         modRes,
         "utf8",
       );
@@ -104,7 +104,7 @@ export async function writeIconModule(
 
       const comRes = iconRowTemplate(icon, name, iconData, "common");
       await fs.appendFile(
-        path.resolve(ICONS, icon.id, "index.js"),
+        path.resolve(DIST, icon.id, "index.js"),
         comRes,
         "utf8",
       );
@@ -112,7 +112,7 @@ export async function writeIconModule(
 
       const dtsRes = iconRowTemplate(icon, name, iconData, "dts");
       await fs.appendFile(
-        path.resolve(ICONS, icon.id, "index.d.ts"),
+        path.resolve(DIST, icon.id, "index.d.ts"),
         dtsRes,
         "utf8",
       );

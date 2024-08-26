@@ -217,5 +217,12 @@ export const IconsManifest: IconManifestType[] = [
     "projectUrl": "https://icons8.com/line-awesome",
     "license": "MIT",
     "licenseUrl": "https://github.com/icons8/line-awesome/blob/master/LICENSE.md"
+  },
+  {
+    "id": "ip",
+    "name": "IconPark",
+    "projectUrl": "https://iconpark.oceanengine.com/home",
+    "license": "Apache License Version 2.0",
+    "licenseUrl": "https://github.com/bytedance/IconPark/blob/master/LICENSE"
   }
 ]
