@@ -17,9 +17,19 @@ packages/vue-icons/*
 !packages/vue-icons/package.json
 !packages/vue-icons/LICENSE
 !packages/vue-icons/README.md
+<<<<<<< HEAD
 
 packages/vue-icons_all-files/*
 !packages/vue-icons_all-files/package.json
 !packages/vue-icons_all-files/LICENSE
 !packages/vue-icons_all-files/README.md
+=======
+
+packages/vue-icons_all-files/*
+!packages/vue-icons_all-files/package.json
+!packages/vue-icons_all-files/LICENSE
+!packages/vue-icons_all-files/README.md
+
+
+>>>>>>> main
 

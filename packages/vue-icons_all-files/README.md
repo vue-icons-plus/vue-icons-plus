@@ -52,11 +52,32 @@ npm install vue-icons-plus --save
 
 ```
 
-[View the documentation](vue-icons.com) for further usage examples and how to use icons from other packages. _NOTE_: each Icon package has it's own subfolder under `vue-icons-plus` you import from.
+### Example usage for Uniapp
+
+```jsx
+<template>
+  <view>
+    <AiFillAccountBook />
+  </view>
+</template>
+
+<script lang="uts">
+  import { BiSearch } from 'vue-icons-plus/bi';
+  export default {
+    components: {
+      BiSearch
+    },
+  }
+</script>
+```
+
+[View the documentation](https://vue-icons.com) for further usage examples and how to use icons from other packages. _NOTE_: each Icon package has it's own subfolder under `vue-icons-plus` you import from.
 
 For example, to use an icon from **Material Design**, your import would be: `import { ICON_NAME } from 'vue-icons-plus/md';`
 
-## Installation (for meteorjs, gatsbyjs, etc)
+## Installation (for Webpack 3, etc)
+
+> Due to npm restrictions, only supports: `ai`、`bi`、`bs`、`cg`、`ci`、`di`、`fa`、`fa6`、`fc`、`fi`、`gi`、`go`、`gr`、`hi`、`hi2`、`im`、`io`、`lia`.
 
 If your project grows in size, this option is available. This method has the trade-off that it takes a long time to install the package.
 
@@ -70,7 +91,7 @@ npm install @vue-icons-plus/all-files --save
 
 ```jsx
 <script>
-  import { FaBeer } from "@vue-icons-plus/all-files/icons/fa/FaBeer";
+  import { FaBeer } from "@vue-icons-plus/all-files/fa/FaBeer";
 </script>
 
 <template>
@@ -84,7 +105,7 @@ npm install @vue-icons-plus/all-files --save
 
 ```jsx
 <script>
-  import { FaBeer } from "@vue-icons-plus/all-files/icons/fa/FaBeer";
+  import { FaBeer } from "@vue-icons-plus/all-files/fa/FaBeer";
   export defautls {
     components: {
       FaBeer

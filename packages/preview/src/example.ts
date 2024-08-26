@@ -1,4 +1,3 @@
-
 export const installCode = `yarn add vue-icons-plus
 # or
 npm install vue-icons-plus --save`;
@@ -23,4 +22,18 @@ export const example = {
 <template>
   <SlActionRedo />
 </template>`,
+  uniapp: `<template>
+  <view>
+    <AiFillAccountBook />
+  </view>
+</template>
+
+<script lang="uts">
+  import { BiSearch } from 'vue-icons-plus/bi';
+  export default {
+    components: {
+      BiSearch
+    },
+  }
+</script>`,
 }

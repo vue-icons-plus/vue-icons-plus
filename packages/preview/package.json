@@ -10,12 +10,12 @@
   },
   "dependencies": {
     "@highlightjs/vue-plugin": "^2.1.0",
-    "@vue-icons-plus/all-files": "^0.0.1",
+    "@vue-icons-plus/all-files": "workspace:*",
     "highlight.js": "^11.10.0",
     "mitt": "^3.0.1",
     "radash": "^12.1.0",
     "vue": "^3.4.21",
-    "vue-icons-plus": "^0.0.2",
+    "vue-icons-plus": "workspace:*",
     "vue-router": "4"
   },
   "devDependencies": {
