@@ -52,6 +52,25 @@ npm install vue-icons-plus --save
 
 ```
 
+### Example usage for Uniapp
+
+```jsx
+<template>
+	<view>
+		<AiFillAccountBook />
+	</view>
+</template>
+
+<script lang="uts">
+	import { BiSearch } from 'vue-icons-plus/bi';
+  export default {
+		components: {
+			BiSearch
+		},
+  }
+</script>
+```
+
 [View the documentation](https://vue-icons.com) for further usage examples and how to use icons from other packages. _NOTE_: each Icon package has it's own subfolder under `vue-icons-plus` you import from.
 
 For example, to use an icon from **Material Design**, your import would be: `import { ICON_NAME } from 'vue-icons-plus/md';`
