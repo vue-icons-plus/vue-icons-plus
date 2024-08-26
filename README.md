@@ -56,17 +56,17 @@ npm install vue-icons-plus --save
 
 ```jsx
 <template>
-	<view>
-		<AiFillAccountBook />
-	</view>
+  <view>
+    <AiFillAccountBook />
+  </view>
 </template>
 
 <script lang="uts">
-	import { BiSearch } from 'vue-icons-plus/bi';
+  import { BiSearch } from 'vue-icons-plus/bi';
   export default {
-		components: {
-			BiSearch
-		},
+    components: {
+      BiSearch
+    },
   }
 </script>
 ```
