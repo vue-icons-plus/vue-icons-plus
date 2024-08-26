@@ -112,7 +112,7 @@ onMounted(() => {
     <highlightjs language="js" :code="example.vue3" />
     <h2 class="sub-title">Usage for Vue ^2.7</h2>
     <highlightjs language="js" :code="example.vue2" />
-    <h2 class="sub-title">Usage for Vue Uniapp</h2>
+    <h2 class="sub-title">Usage for Uniapp</h2>
     <highlightjs language="js" :code="example.uniapp" />
     <h2 class="sub-title">Demo</h2>
     <div class="main-demo">

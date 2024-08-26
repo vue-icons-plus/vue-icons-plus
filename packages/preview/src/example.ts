@@ -24,7 +24,7 @@ export const example = {
 </template>`,
   uniapp: `<template>
   <view>
-    <AiFillAccountBook />
+    <BiSearch />
   </view>
 </template>
 
