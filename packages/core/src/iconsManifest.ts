@@ -224,5 +224,12 @@ export const IconsManifest: IconManifestType[] = [
     "projectUrl": "https://iconpark.oceanengine.com/home",
     "license": "Apache License Version 2.0",
     "licenseUrl": "https://github.com/bytedance/IconPark/blob/master/LICENSE"
-  }
+  },
+  {
+    "id": "ep",
+    "name": "Element Plus Icons",
+    "projectUrl": "https://github.com/element-plus/element-plus-icons",
+    "license": "MIT",
+    "licenseUrl": "https://github.com/element-plus/element-plus-icons/blob/main/LICENSE",
+  },
 ]
