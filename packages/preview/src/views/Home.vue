@@ -11,6 +11,7 @@ import { AiFillGithub } from "@vue-icons-plus/all-files/ai/AiFillGithub";
 import { Fa6Npm } from "@vue-icons-plus/all-files/fa6/Fa6Npm";
 import { installCode, example } from "../example";
 import emitter from "../mitt";
+import changes from "../changelog.json";
 
 const router = useRouter();
 const iconsManifest = reactive(IconsManifest);
@@ -18,6 +19,7 @@ const iconModulesMap = reactive(new Map());
 const moduleCounts: { [key: string]: number } = reactive({});
 const allCounts = ref(0);
 const currentId = ref("");
+const changelog = ref(changes);
 
 const handleClick = (icon: IconManifestType) => {
   currentId.value = icon.id;
@@ -82,13 +84,13 @@ onMounted(() => {
     </p>
 
     <h2 class="sub-title">Change Log</h2>
-    <p>
-      Add ByteDance Icon Library
-      <a href="https://iconpark.oceanengine.com/official" target="_blank"
-        >IconPark</a
-      >
-      (2024-08-19)
-    </p>
+    <ul class="change-log">
+      <li v-for="log in changelog" :key="log.name" style="margin: 3px 0">
+        Add
+        <a :href="log.link" target="_blank">{{ log.name }}</a>
+        ({{ log.timeDate }})
+      </li>
+    </ul>
     <h2 class="sub-title">Include icon sets (total: {{ allCounts }})</h2>
     <div class="main-content">
       <div
@@ -188,6 +190,11 @@ onMounted(() => {
   font-weight: 500;
   margin-bottom: var(--space-2);
   padding-top: var(--space-2);
+}
+.change-log {
+  padding: 12px 32px;
+  border-radius: 5px;
+  background: var(--color-gray-1);
 }
 .main-content {
   display: grid;
