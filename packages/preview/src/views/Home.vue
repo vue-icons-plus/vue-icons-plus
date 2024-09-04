@@ -88,7 +88,7 @@ onMounted(() => {
       <li v-for="log in changelog" :key="log.name" style="margin: 3px 0">
         Add
         <a :href="log.link" target="_blank">{{ log.name }}</a>
-        ({{ log.timeDate }})
+        ({{ log.timeDate }} {{ log.version }})
       </li>
     </ul>
     <h2 class="sub-title">Include icon sets (total: {{ allCounts }})</h2>
