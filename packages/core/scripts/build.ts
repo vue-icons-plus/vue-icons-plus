@@ -47,15 +47,15 @@ async function main() {
       ICONS: path.resolve(_rootDir, "../vue-icons_all-files/icons"),
       LIB: path.resolve(_rootDir, "../vue-icons_all-files/lib"),
     };
-    await task("vue-icons_all-files initialize", async () => {
-      await taskAllFiles.dirInit(allFilesOpt);
-      await taskCommon.writeDistEntryPoints(allFilesOpt);
-    });
-    await task("vue-icons_all-files write files", async () => {
-      await Promise.all(
-        icons.map((icon) => taskAllFiles.writeFiles(icon, allFilesOpt))
-      )
-    });
+    // await task("vue-icons_all-files initialize", async () => {
+    //   await taskAllFiles.dirInit(allFilesOpt);
+    //   await taskCommon.writeDistEntryPoints(allFilesOpt);
+    // });
+    // await task("vue-icons_all-files write files", async () => {
+    //   await Promise.all(
+    //     icons.map((icon) => taskAllFiles.writeFiles(icon, allFilesOpt))
+    //   )
+    // });
 
     // write license and copy readme
     await task("write license and copy readme", async () => {

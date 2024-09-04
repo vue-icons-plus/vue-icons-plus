@@ -2,7 +2,7 @@
 import { ref } from "vue";
 import { useRoute } from "vue-router";
 import { copyTextToClipboard } from "././../useGetIcons";
-
+import Tooltip from "./Tooltip.vue";
 const route = useRoute();
 const props = defineProps({
   iconList: {
@@ -13,11 +13,18 @@ const props = defineProps({
     default: false,
   },
 });
+const copied = ref(false);
 const currentIcon = ref("");
 const handleClickIcon = (name: string) => {
   if (props.plain) return;
   currentIcon.value = name;
+  copied.value = true;
   copyTextToClipboard(`<${name} />`);
+};
+const onOpenChange = (visible: boolean) => {
+  if (visible) {
+    copied.value = false;
+  }
 };
 </script>
 
@@ -29,10 +36,22 @@ const handleClickIcon = (name: string) => {
       :key="key"
       @click="handleClickIcon(key)"
     >
-      <div class="icon" :class="{ 'is-active': currentIcon === key }">
-        <component :is="icon"></component>
+      <template v-if="!plain">
+        <Tooltip @onOpenChange="onOpenChange">
+          <template #content>{{ copied ? "copied" : "copy" }}</template>
+          <div class="icon" :class="{ 'is-active': currentIcon === key }">
+            <component :is="icon"></component>
+          </div>
+        </Tooltip>
+      </template>
+      <template v-else>
+        <div class="icon" :class="{ 'is-active': currentIcon === key }">
+          <component :is="icon"></component>
+        </div>
+      </template>
+      <div v-show="!plain" class="name" :title="key">
+        {{ route.params.id }} {{ key }}
       </div>
-      <div v-show="!plain" class="name">{{ route.params.id }} {{ key }}</div>
     </div>
   </div>
 </template>

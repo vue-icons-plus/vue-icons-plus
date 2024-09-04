@@ -1,6 +1,6 @@
 {
   "name": "@vue-icons-plus/all-files",
-  "version": "0.0.8",
+  "version": "0.1.0",
   "description": "SVG vue icons of popular icon packs using ES6 imports",
   "author": "DwanL <253929992@qq.com>",
   "license": "MIT",
@@ -23,6 +23,6 @@
     "icons"
   ],
   "peerDependencies": {
-    "vue": "*"
+    "vue": "^2.7.0"
   }
 }
