@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import { onMounted, Ref, ref, VueElement, watch } from "vue";
 import { copyTextToClipboard, getIcons } from "../useGetIcons";
-
+import Tooltip from "./Tooltip.vue";
 type Modules = { [key: string]: VueElement };
 
 const props = defineProps({
@@ -18,9 +18,17 @@ let modules: Modules = {};
 const foundData: Ref<string[]> = ref([]);
 
 const currentIcon = ref("");
+const copied = ref(false);
 const handleClickIcon = (name: string) => {
   currentIcon.value = name;
+  copied.value = true;
   copyTextToClipboard(`<${name} />`);
+};
+
+const onOpenChange = (visible: boolean) => {
+  if (visible) {
+    copied.value = false;
+  }
 };
 
 const getFoundData = (modules: Modules, queryId: string) => {
@@ -50,15 +58,20 @@ onMounted(async () => {
 </script>
 
 <template>
-  <div class="icon-item" v-for="name in foundData">
+  <div
+    class="icon-item"
+    v-for="name in foundData"
+    :key="name"
+    @click="handleClickIcon(name)"
+  >
     <div v-if="modules[name]">
-      <div
-        class="icon"
-        :class="{ 'is-active': currentIcon === name }"
-        @click="handleClickIcon(name)"
-      >
-        <component :is="modules[name]"></component>
-      </div>
+      <Tooltip @onOpenChange="onOpenChange">
+        <template #content>{{ copied ? "copied" : "copy" }}</template>
+        <div class="icon" :class="{ 'is-active': currentIcon === name }">
+          <component :is="modules[name]"></component>
+        </div>
+      </Tooltip>
+
       <div class="name">{{ name }}</div>
     </div>
   </div>
