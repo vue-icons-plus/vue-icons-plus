@@ -817,5 +817,21 @@ export const icons: IconDefinition[] = [
       branch: "master",
       hash: "8e785119191c62bbf3bfa78c63f70bd0155dfb90",
     },
-  }
+  },
+  {
+    id: "ep",
+    name: "Element Plus Icons",
+    contents: [
+      {
+        files: path.resolve(
+          __dirname,
+          "../../../../node_modules/@element-plus/icons-svg/*.svg",
+        ),
+        formatter: (name) => `Ep${name}`,
+      },
+    ],
+    projectUrl: "https://github.com/element-plus/element-plus-icons",
+    license: "MIT",
+    licenseUrl: "https://github.com/element-plus/element-plus-icons/blob/main/LICENSE",
+  },
 ];

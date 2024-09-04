@@ -8,10 +8,11 @@ export const getIcons = async (id: string) => {
 
 export const copyTextToClipboard = (text: string) => {
   navigator.clipboard.writeText(text).then(function () {
-    confirm("已复制文本 " + text + " 到剪贴板");
+    console.log("已复制文本 " + text + " 到剪贴板");
+    // confirm("已复制文本 " + text + " 到剪贴板");
   }).catch(function (error) {
     console.error('复制失败', error);
-    alert("复制失败，请检查浏览器的权限设置");
+    // alert("复制失败，请检查浏览器的权限设置");
   });
 }
 
