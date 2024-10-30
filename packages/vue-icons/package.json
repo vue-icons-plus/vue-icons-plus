@@ -15,7 +15,7 @@
   "module": "./lib/index.mjs",
   "types": "./lib/index.d.ts",
   "peerDependencies": {
-    "vue": "^2.7.0"
+    "vue": ">=2.7.0"
   },
   "keywords": [
     "Vue.js",
