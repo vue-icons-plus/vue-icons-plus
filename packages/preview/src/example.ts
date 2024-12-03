@@ -1,4 +1,3 @@
-
 export const installCode = `yarn add vue-icons-plus
 # or
 npm install vue-icons-plus --save`;
@@ -23,4 +22,4 @@ export const example = {
 <template>
   <SlActionRedo />
 </template>`,
-}
+};

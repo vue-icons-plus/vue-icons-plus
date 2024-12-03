@@ -4,7 +4,6 @@
   "description": "SVG vue icons of popular icon packs using ES6 imports",
   "author": "DwanL <253929992@qq.com>",
   "license": "MIT",
-  "packageManager": "yarn@3.6.0",
   "sideEffects": false,
   "repository": "https://github.com/vue-icons-plus/vue-icons-plus.git",
   "bugs": {
@@ -14,9 +13,6 @@
   "main": "./lib/index.js",
   "module": "./lib/index.mjs",
   "types": "./lib/index.d.ts",
-  "peerDependencies": {
-    "vue": ">=2.7.0"
-  },
   "keywords": [
     "Vue.js",
     "SVG",
@@ -25,6 +21,9 @@
     "vue-components",
     "icons"
   ],
+  "peerDependencies": {
+    "vue": ">=2.7.0"
+  },
   "exports": {
     ".": {
       "types": "./index.d.ts",
@@ -47,9 +46,15 @@
   },
   "typesVersions": {
     "*": {
-      ".": [ "./index.d.ts"],
-      "*": [ "./*/index.d.ts"],
-      "lib": ["./lib/index.d.ts"]
+      ".": [
+        "./index.d.ts"
+      ],
+      "*": [
+        "./*/index.d.ts"
+      ],
+      "lib": [
+        "./lib/index.d.ts"
+      ]
     }
   }
 }

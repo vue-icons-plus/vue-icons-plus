@@ -11,7 +11,7 @@
   "license": "MIT",
   "scripts": {
     "lint": "yarn eslint .",
-    "format": "prettier --write --ignore-unknown .",
+    "format": "prettier --write --ignore-unknown '**/*.{js,ts,mjs,cjs,json}'",
     "dev": "yarn workspace preview run dev",
     "build": "yarn workspace core run build",
     "test:dev": "yarn workspace test run dev",

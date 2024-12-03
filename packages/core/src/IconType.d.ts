@@ -8,6 +8,6 @@ export type IconType = {
       type: (String | Number)[];
       default: number;
     };
-  },
-  render(): VNode
-}
+  };
+  render(): VNode;
+};

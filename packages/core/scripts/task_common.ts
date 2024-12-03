@@ -3,16 +3,18 @@ import { promises as fs } from "fs";
 import findPackage from "find-package";
 import camelcase from "camelcase";
 import { promisify } from "util";
-import { optimize as svgoOptimize } from "svgo"
+import { optimize as svgoOptimize } from "svgo";
 import { svgoConfig } from "./svgo";
 const exec = promisify(require("child_process").exec);
 import { icons } from "../src/icons";
 import { getIconFiles, rmDirRecursive, copyRecursive } from "./logics";
-import { TaskContext, IconDefinition, IconsetVersion, IconTree } from "./_types";
+import {
+  TaskContext,
+  IconDefinition,
+  IconsetVersion,
+  IconTree,
+} from "./_types";
 import type { IconManifestType } from "../src/iconsManifest.d";
-
-
-
 
 export async function writeDistEntryPoints({ DIST }) {
   const generateEntryCjs = function () {
@@ -24,18 +26,43 @@ export async function writeDistEntryPoints({ DIST }) {
   await fs.writeFile(
     path.resolve(DIST, "index.js"),
     generateEntryCjs(),
-    "utf8",
+    "utf8"
   );
   await fs.writeFile(
     path.resolve(DIST, "index.mjs"),
     generateEntryMjs(),
-    "utf8",
+    "utf8"
   );
   await fs.writeFile(
     path.resolve(DIST, "index.d.ts"),
     generateEntryMjs("index.d.ts"),
-    "utf8",
+    "utf8"
   );
+}
+
+
+export async function writePackageJson(
+  override: any,
+  { DIST, LIB, rootDir }: TaskContext,
+) {
+  const packageJsonStr = await fs.readFile(
+    path.resolve(rootDir, "package.json"),
+    "utf-8",
+  );
+  let packageJson = JSON.parse(packageJsonStr);
+
+  delete packageJson.private;
+  delete packageJson.dependencies;
+  delete packageJson.devDependencies;
+  delete packageJson.scripts;
+
+  packageJson = {
+    ...packageJson,
+    ...override,
+  };
+
+  const editedPackageJsonStr = JSON.stringify(packageJson, null, 2) + "\n";
+  await fs.writeFile(path.resolve(DIST, "package.json"), editedPackageJsonStr);
 }
 
 export async function writeIconVersions({ DIST, LIB, rootDir }: TaskContext) {
@@ -46,7 +73,7 @@ export async function writeIconVersions({ DIST, LIB, rootDir }: TaskContext) {
       await Promise.all(icon.contents.map((content) => getIconFiles(content)))
     ).flat();
     if (files.length === 0) {
-      continue
+      continue;
       throw new Error(`Missing path for: ${icon.name}`);
     }
 
@@ -119,7 +146,6 @@ export async function writeIconsManifest({ DIST, LIB, rootDir }: TaskContext) {
     "src/iconsManifest.d.ts",
     path.resolve(LIB, "iconsManifest.d.ts")
   );
-
 }
 
 export async function writeLicense({ DIST, LIB, rootDir }: TaskContext) {
@@ -148,11 +174,11 @@ export async function copyReadme({ DIST, rootDir }: TaskContext) {
 }
 
 export async function buildLib({ rootDir }: TaskContext) {
-  await new Promise((resolve) => resolve(exec("vite build"))).catch((err) => { throw err });
+  await new Promise((resolve) => resolve(exec("vite build"))).catch((err) => {
+    throw err;
+  });
 }
 
 export async function copyLib({ DIST, LIB, rootDir }: TaskContext) {
   await copyRecursive(path.resolve(rootDir, "build/lib"), LIB);
 }
-
-
