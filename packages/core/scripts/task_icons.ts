@@ -36,7 +36,7 @@ export async function dirInit({ DIST, LIB }: TaskContext, version = 'vue3') {
     );
 
 
-    const modHeader = `// THIS FILE IS AUTO GENERATED\n import { useGenIcon } from "../lib";\n`
+    const modHeader = `// THIS FILE IS AUTO GENERATED\n import { useGenIcon } from "../lib/index.mjs";\n`
     await write(
       DIST,
       [icon.id, "index.mjs"],
@@ -44,7 +44,7 @@ export async function dirInit({ DIST, LIB }: TaskContext, version = 'vue3') {
     );
 
 
-    const dtsHeader = `// THIS FILE IS AUTO GENERATED\nimport { IconType } from "../lib";\n`
+    const dtsHeader = `// THIS FILE IS AUTO GENERATED\nimport { IconType } from "../lib/index.mjs";\n`
     await write(
       DIST,
       [icon.id, "index.d.ts"],
