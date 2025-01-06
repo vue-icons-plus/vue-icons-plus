@@ -44,7 +44,7 @@ export async function dirInit({ DIST, LIB }: TaskContext, version = 'vue3') {
     );
 
 
-    const dtsHeader = `// THIS FILE IS AUTO GENERATED\nimport { IconType } from "../lib/index.mjs";\n`
+    const dtsHeader = `// THIS FILE IS AUTO GENERATED\nimport type { IconType } from "../lib/index.mjs";\n`
     await write(
       DIST,
       [icon.id, "index.d.ts"],
