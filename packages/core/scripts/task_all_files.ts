@@ -72,7 +72,7 @@ export async function writeFiles(icon: IconDefinition, { DIST }: TaskContext, ve
 
 
       const dtsHeader =
-        "// THIS FILE IS AUTO GENERATED\nimport type { IconType } from '../lib';\n";
+        "// THIS FILE IS AUTO GENERATED\nimport type { IconType } from '../lib/index';\n";
       const dtsRes = iconRowTemplate(icon, componentName, iconData, "dts")
       await fs.writeFile(
         path.resolve(DIST, icon.id, `${componentName}.d.ts`),
