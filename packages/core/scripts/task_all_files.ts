@@ -52,7 +52,7 @@ export async function writeFiles(icon: IconDefinition, { DIST }: TaskContext, ve
       exists.add(componentName);
 
 
-      const modHeader = `// THIS FILE IS AUTO GENERATED\nimport { useGenIcon } from "../lib";\n`;
+      const modHeader = `// THIS FILE IS AUTO GENERATED\nimport { useGenIcon } from "../lib/index.mjs";\n`;
       const modRes = iconRowTemplate(icon, componentName, iconData, "module")
       await fs.writeFile(
         path.resolve(DIST, icon.id, `${componentName}.mjs`),
@@ -72,7 +72,7 @@ export async function writeFiles(icon: IconDefinition, { DIST }: TaskContext, ve
 
 
       const dtsHeader =
-        "// THIS FILE IS AUTO GENERATED\nimport { IconType } from '../lib';\n";
+        "// THIS FILE IS AUTO GENERATED\nimport type { IconType } from '../lib/index';\n";
       const dtsRes = iconRowTemplate(icon, componentName, iconData, "dts")
       await fs.writeFile(
         path.resolve(DIST, icon.id, `${componentName}.d.ts`),
