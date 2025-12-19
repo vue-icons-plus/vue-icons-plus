@@ -37,7 +37,7 @@ watchEffect(async () => {
         <div class="icon-main-info">
           <div>
             <span>License: </span>
-            <a :href="iconManifest.license" target="__target">
+            <a :href="iconManifest.licenseUrl" target="__target">
               {{ iconManifest.license || "MIT" }}
             </a>
           </div>

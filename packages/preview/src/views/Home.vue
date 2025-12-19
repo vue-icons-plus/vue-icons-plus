@@ -30,7 +30,7 @@ const handleClick = (icon: IconManifestType) => {
 };
 
 onMounted(() => {
-  iconsManifest.forEach(async (item) => {
+  iconsManifest.forEach(async (item: { id: string }) => {
     const id = item.id;
     const module = await getIcons(id);
     const componentNames = Object.keys(module);

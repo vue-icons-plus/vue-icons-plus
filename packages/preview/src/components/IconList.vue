@@ -20,10 +20,10 @@ const handleClickIcon = (name: string) => {
   currentIcon.value = name;
   copied.value = true;
   copyTextToClipboard(`<${name} />`);
-};
-const onOpenChange = (visible: boolean) => {
-  if (visible) {
-    copied.value = false;
+  if (copied.value) {
+    setTimeout(() => {
+      copied.value = false;
+    }, 1000);
   }
 };
 </script>
@@ -34,18 +34,19 @@ const onOpenChange = (visible: boolean) => {
       class="icon-item"
       v-for="(icon, key) in props.iconList"
       :key="key"
+      :title="key"
       @click="handleClickIcon(key)"
     >
       <template v-if="!plain">
-        <Tooltip @onOpenChange="onOpenChange">
-          <template #content>{{ copied ? "copied" : "copy" }}</template>
-          <div class="icon" :class="{ 'is-active': currentIcon === key }">
+        <Tooltip>
+          <template #title>{{ copied ? "copied" : "copy" }}</template>
+          <div :class="['icon', { 'is-active': currentIcon === key }]">
             <component :is="icon"></component>
           </div>
         </Tooltip>
       </template>
       <template v-else>
-        <div class="icon" :class="{ 'is-active': currentIcon === key }">
+        <div :class="['icon', { 'is-active': currentIcon === key }]">
           <component :is="icon"></component>
         </div>
       </template>
