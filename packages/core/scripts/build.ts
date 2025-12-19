@@ -1,11 +1,11 @@
 import path from "path";
 import { performance } from "perf_hooks";
 import { TaskContext } from "./_types";
+import { buildPackageExports, buildTypesVersions } from "./logics";
 import { icons } from "../src/icons";
-import * as taskCommon from "./task_common"
-import * as taskIcons from "./task_icons"
+import * as taskCommon from "./task_common";
+import * as taskIcons from "./task_icons";
 import * as taskAllFiles from "./task_all_files";
-
 
 // file path
 const _rootDir = path.resolve(__dirname, "../");
@@ -32,10 +32,14 @@ async function main() {
     await task("vue-icons initialize", async () => {
       await taskIcons.dirInit(iconsOpt);
       await taskCommon.writeDistEntryPoints(iconsOpt);
+      await taskCommon.writePackageJson(
+        { name: "vue-icons-plus", exports: buildPackageExports(icons), typesVersions: buildTypesVersions() },
+        iconsOpt,
+      );
     });
     await task("vue-icons write icons", async () => {
       await Promise.all(
-        icons.map((icon) => taskIcons.writeIconModule(icon, iconsOpt)),
+        icons.map((icon) => taskIcons.writeIconModule(icon, iconsOpt))
       );
     });
 
@@ -47,15 +51,19 @@ async function main() {
       ICONS: path.resolve(_rootDir, "../vue-icons_all-files/icons"),
       LIB: path.resolve(_rootDir, "../vue-icons_all-files/lib"),
     };
-    // await task("vue-icons_all-files initialize", async () => {
-    //   await taskAllFiles.dirInit(allFilesOpt);
-    //   await taskCommon.writeDistEntryPoints(allFilesOpt);
-    // });
-    // await task("vue-icons_all-files write files", async () => {
-    //   await Promise.all(
-    //     icons.map((icon) => taskAllFiles.writeFiles(icon, allFilesOpt))
-    //   )
-    // });
+    await task("vue-icons_all-files initialize", async () => {
+      await taskAllFiles.dirInit(allFilesOpt);
+      await taskCommon.writeDistEntryPoints(allFilesOpt);
+      await taskCommon.writePackageJson(
+        { name: "@vue-icons-plus/all-files" },
+        allFilesOpt,
+      );
+    });
+    await task("vue-icons_all-files write files", async () => {
+      await Promise.all(
+        icons.map((icon) => taskAllFiles.writeFiles(icon, allFilesOpt))
+      );
+    });
 
     // write license and copy readme
     await task("write license and copy readme", async () => {
@@ -63,8 +71,7 @@ async function main() {
       await taskCommon.copyReadme(iconsOpt);
       await taskCommon.writeLicense(allFilesOpt);
       await taskCommon.copyReadme(allFilesOpt);
-    })
-
+    });
 
     // write files to lib
     await task("core build common library", async () => {
@@ -73,7 +80,6 @@ async function main() {
       await taskCommon.copyLib(allFilesOpt);
     });
 
-
     // write to VERSIONS file
     await task("core write icon versions", async () => {
       await taskCommon.writeIconVersions(allFilesOpt);
@@ -81,11 +87,11 @@ async function main() {
 
     console.log("done");
   } catch (error) {
-    console.log(error)
-    process.exit(1)
+    console.log(error);
+    process.exit(1);
   }
 }
 
-main()
+main();
 
 export { };

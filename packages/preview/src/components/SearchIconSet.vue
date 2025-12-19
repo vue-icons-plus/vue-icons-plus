@@ -23,11 +23,10 @@ const handleClickIcon = (name: string) => {
   currentIcon.value = name;
   copied.value = true;
   copyTextToClipboard(`<${name} />`);
-};
-
-const onOpenChange = (visible: boolean) => {
-  if (visible) {
-    copied.value = false;
+  if (copied.value) {
+    setTimeout(() => {
+      copied.value = false;
+    }, 1000);
   }
 };
 
@@ -44,7 +43,7 @@ const getFoundData = (modules: Modules, queryId: string) => {
 
 watch(
   () => props.queryId,
-  (data) => {
+  (data: string) => {
     foundData.value = getFoundData(modules, data);
   }
 );
@@ -62,12 +61,13 @@ onMounted(async () => {
     class="icon-item"
     v-for="name in foundData"
     :key="name"
+    :title="name"
     @click="handleClickIcon(name)"
   >
     <div v-if="modules[name]">
-      <Tooltip @onOpenChange="onOpenChange">
-        <template #content>{{ copied ? "copied" : "copy" }}</template>
-        <div class="icon" :class="{ 'is-active': currentIcon === name }">
+      <Tooltip>
+        <template #title>{{ copied ? "copied" : "copy" }}</template>
+        <div :class="['icon', { 'is-active': currentIcon === name }]">
           <component :is="modules[name]"></component>
         </div>
       </Tooltip>

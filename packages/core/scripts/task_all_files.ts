@@ -1,7 +1,7 @@
 import path from "path";
 import { promises as fs } from "fs";
 import camelcase from "camelcase";
-import { optimize as svgoOptimize } from "svgo"
+import { optimize as svgoOptimize } from "svgo";
 import { svgoConfig } from "./svgo";
 import { icons } from "../src/icons";
 import { iconRowTemplate } from "./templates";
@@ -33,7 +33,11 @@ export async function dirInit({ DIST, LIB }: TaskContext) {
   // }
 }
 
-export async function writeFiles(icon: IconDefinition, { DIST }: TaskContext, version = 'vue3') {
+export async function writeFiles(
+  icon: IconDefinition,
+  { DIST }: TaskContext,
+  version = "vue3"
+) {
   const exists = new Set(); // for remove duplicate
   for (const content of icon.contents) {
     const files = await getIconFiles(content);
@@ -47,42 +51,37 @@ export async function writeFiles(icon: IconDefinition, { DIST }: TaskContext, ve
       const rawName = path.basename(file, path.extname(file));
       const pascalName = camelcase(rawName, { pascalCase: true });
       const componentName =
-        (content.formatter && content.formatter(pascalName, file)) || pascalName;
+        (content.formatter && content.formatter(pascalName, file)) ||
+        pascalName;
       if (exists.has(componentName)) continue;
       exists.add(componentName);
 
-
-      const modHeader = `// THIS FILE IS AUTO GENERATED\nimport { useGenIcon } from "../lib";\n`;
-      const modRes = iconRowTemplate(icon, componentName, iconData, "module")
+      const modHeader = `// THIS FILE IS AUTO GENERATED\nimport { useGenIcon } from "../lib/index.mjs";\n`;
+      const modRes = iconRowTemplate(icon, componentName, iconData, "module");
       await fs.writeFile(
         path.resolve(DIST, icon.id, `${componentName}.mjs`),
         modHeader + modRes,
-        "utf8",
+        "utf8"
       );
 
-
-      const comHeader =
-        `// THIS FILE IS AUTO GENERATED\nconst useGenIcon = require('../lib').useGenIcon;\n`;
-      const comRes = iconRowTemplate(icon, componentName, iconData, "common")
+      const comHeader = `// THIS FILE IS AUTO GENERATED\nconst useGenIcon = require('../lib').useGenIcon;\n`;
+      const comRes = iconRowTemplate(icon, componentName, iconData, "common");
       await fs.writeFile(
         path.resolve(DIST, icon.id, `${componentName}.js`),
         comHeader + comRes,
-        "utf8",
+        "utf8"
       );
 
-
       const dtsHeader =
-        "// THIS FILE IS AUTO GENERATED\nimport { IconType } from '../lib';\n";
-      const dtsRes = iconRowTemplate(icon, componentName, iconData, "dts")
+        "// THIS FILE IS AUTO GENERATED\nimport type { IconType } from '../lib/index';\n";
+      const dtsRes = iconRowTemplate(icon, componentName, iconData, "dts");
       await fs.writeFile(
         path.resolve(DIST, icon.id, `${componentName}.d.ts`),
         dtsHeader + dtsRes,
-        "utf8",
+        "utf8"
       );
 
       exists.add(file);
     }
   }
 }
-
-

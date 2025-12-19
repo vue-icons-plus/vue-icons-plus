@@ -1,22 +1,8 @@
-<script setup lang="ts">
-import { ref } from "vue";
-const emit = defineEmits(["onOpenChange"]);
-const visible = ref(false);
-const onOpenChange = (isVisible: boolean) => {
-  setTimeout(() => {
-    visible.value = isVisible;
-    emit("onOpenChange", visible.value);
-  }, 200);
-};
-</script>
+<script setup lang="ts"></script>
 <template>
-  <div
-    class="tooltip"
-    @mouseenter="onOpenChange(true)"
-    @mouseleave="onOpenChange(false)"
-  >
-    <span class="tooltip-text" v-show="visible">
-      <slot name="content"></slot>
+  <div class="tooltip">
+    <span class="tooltip-title">
+      <slot name="title"></slot>
     </span>
     <slot></slot>
   </div>
@@ -29,7 +15,12 @@ const onOpenChange = (isVisible: boolean) => {
   display: inline-block;
 }
 
-.tooltip .tooltip-text {
+.tooltip:hover .tooltip-title {
+  display: block;
+}
+
+.tooltip .tooltip-title {
+  display: none;
   font-size: 12px;
   min-width: 30px;
   height: 32px;
@@ -42,9 +33,9 @@ const onOpenChange = (isVisible: boolean) => {
   position: absolute;
   z-index: 1;
   top: 17px;
-  left: 105px;
+  left: 100px;
 }
-.tooltip .tooltip-text::after {
+.tooltip .tooltip-title::after {
   content: " ";
   position: absolute;
   top: 50%;

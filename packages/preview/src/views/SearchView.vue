@@ -1,18 +1,16 @@
 <script setup lang="ts">
 import { IconsManifest } from "vue-icons-plus";
-import { reactive, ref, watch } from "vue";
+import { reactive, ref, watchEffect } from "vue";
 import { useRoute } from "vue-router";
 import SearchIconSet from "../components/SearchIconSet.vue";
 
 const route = useRoute();
 const queryId = ref("");
 const manifest = reactive(IconsManifest);
-watch(
-  () => route.query.q,
-  (q) => {
-    queryId.value = q;
-  }
-);
+
+watchEffect(() => {
+  queryId.value = route.query.q;
+});
 </script>
 
 <template>

@@ -28,7 +28,7 @@ export interface IconSetGitSource {
 export interface TaskContext {
   rootDir: string;
   DIST: string;
-  ICONS: string,
+  ICONS: string;
   LIB: string;
 }
 
@@ -38,10 +38,8 @@ export interface IconsetVersion {
   count: number;
 }
 
-
 export interface IconTree {
   tag: string;
   attr: { [key: string]: string };
   child: IconTree[];
 }
-

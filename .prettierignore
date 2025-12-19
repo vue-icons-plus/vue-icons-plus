@@ -1,0 +1,11 @@
+.yarn
+node_modules
+/dist/
+
+/packages/vue-icons
+/packages/vue-icons_all-files
+
+/packages/core/build
+/packages/core/icons/*
+
+/lerna.json

@@ -1917,7 +1917,7 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@vue-icons-plus/all-files@workspace:packages/vue-icons_all-files"
   peerDependencies:
-    vue: ^2.7.0
+    vue: ">=2.7.0"
   languageName: unknown
   linkType: soft
 
@@ -3258,7 +3258,7 @@ __metadata:
     vite-plugin-dts: 1.4.1
     vue-tsc: ^2.0.29
   peerDependencies:
-    vue: "*"
+    vue: ">=2.7.0"
   languageName: unknown
   linkType: soft
 
@@ -8905,7 +8905,7 @@ __metadata:
 
 "typescript@patch:typescript@5.4.2#~builtin<compat/typescript>":
   version: 5.4.2
-  resolution: "typescript@patch:typescript@npm%3A5.4.2#~builtin<compat/typescript>::version=5.4.2&hash=5da071"
+  resolution: "typescript@patch:typescript@npm%3A5.4.2#~builtin<compat/typescript>::version=5.4.2&hash=14eedb"
   bin:
     tsc: bin/tsc
     tsserver: bin/tsserver
@@ -8925,7 +8925,7 @@ __metadata:
 
 "typescript@patch:typescript@^5.2.2#~builtin<compat/typescript>, typescript@patch:typescript@~5.4.0#~builtin<compat/typescript>":
   version: 5.4.5
-  resolution: "typescript@patch:typescript@npm%3A5.4.5#~builtin<compat/typescript>::version=5.4.5&hash=5da071"
+  resolution: "typescript@patch:typescript@npm%3A5.4.5#~builtin<compat/typescript>::version=5.4.5&hash=14eedb"
   bin:
     tsc: bin/tsc
     tsserver: bin/tsserver
@@ -8935,7 +8935,7 @@ __metadata:
 
 "typescript@patch:typescript@^5.3.3#~builtin<compat/typescript>":
   version: 5.3.3
-  resolution: "typescript@patch:typescript@npm%3A5.3.3#~builtin<compat/typescript>::version=5.3.3&hash=5da071"
+  resolution: "typescript@patch:typescript@npm%3A5.3.3#~builtin<compat/typescript>::version=5.3.3&hash=14eedb"
   bin:
     tsc: bin/tsc
     tsserver: bin/tsserver
@@ -9304,7 +9304,7 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "vue-icons-plus@workspace:packages/vue-icons"
   peerDependencies:
-    vue: ^2.7.0
+    vue: ">=2.7.0"
   languageName: unknown
   linkType: soft
 

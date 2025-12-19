@@ -4,7 +4,6 @@
   "description": "SVG vue icons of popular icon packs using ES6 imports",
   "author": "DwanL <253929992@qq.com>",
   "license": "MIT",
-  "packageManager": "yarn@3.6.0",
   "sideEffects": false,
   "repository": "https://github.com/vue-icons-plus/vue-icons-plus.git",
   "bugs": {
@@ -23,6 +22,6 @@
     "icons"
   ],
   "peerDependencies": {
-    "vue": "^2.7.0"
+    "vue": ">=2.7.0"
   }
 }
