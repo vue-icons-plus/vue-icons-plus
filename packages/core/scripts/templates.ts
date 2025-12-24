@@ -8,13 +8,13 @@ export function iconRowTemplate(
 ) {
   switch (type) {
     case "module":
-      return `export const ${formattedName} = useGenIcon(${JSON.stringify(
+      return `export function ${formattedName}(props) { \n  return GenIcon(${JSON.stringify(
         iconData
-      )});\n`;
+      )})(props); \n};\n`;
     case "common":
-      return `module.exports.${formattedName} = useGenIcon(${JSON.stringify(
+      return `module.exports.${formattedName} = function ${formattedName}(props) {\n  return GenIcon(${JSON.stringify(
         iconData
-      )});\n`;
+      )})(props); \n};\n`;
     case "dts":
       return `export declare const ${formattedName}: IconType;\n`;
     default:
