@@ -28,10 +28,10 @@ export async function dirInit({ DIST, LIB }: TaskContext, version = "vue3") {
   for (const icon of icons) {
     await fs.mkdir(path.resolve(DIST, icon.id)).catch(ignore);
 
-    const comHeader = `// THIS FILE IS AUTO GENERATED\nconst useGenIcon = require('../lib').useGenIcon;\n`;
+    const comHeader = `// THIS FILE IS AUTO GENERATED\nvar GenIcon = require('../lib').GenIcon;\n`;
     await write(DIST, [icon.id, "index.js"], comHeader);
 
-    const modHeader = `// THIS FILE IS AUTO GENERATED\nimport { useGenIcon } from "../lib/index.mjs";\n`;
+    const modHeader = `// THIS FILE IS AUTO GENERATED\nimport { GenIcon } from "../lib/index.mjs";\n`;
     await write(DIST, [icon.id, "index.mjs"], modHeader);
 
     const dtsHeader = `// THIS FILE IS AUTO GENERATED\nimport type { IconType } from "../lib/index";\n`;

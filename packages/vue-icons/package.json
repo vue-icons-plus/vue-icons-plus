@@ -10,9 +10,9 @@
     "url": "https://github.com/vue-icons-plus/issues"
   },
   "homepage": "https://vue-icons.com",
-  "main": "./lib/index.js",
-  "module": "./lib/index.mjs",
-  "types": "./lib/index.d.ts",
+  "main": "/lib/index.js",
+  "module": "/lib/index.mjs",
+  "types": "/lib/index.d.ts",
   "keywords": [
     "Vue.js",
     "SVG",

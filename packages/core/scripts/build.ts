@@ -33,8 +33,12 @@ async function main() {
       await taskIcons.dirInit(iconsOpt);
       await taskCommon.writeDistEntryPoints(iconsOpt);
       await taskCommon.writePackageJson(
-        { name: "vue-icons-plus", exports: buildPackageExports(icons), typesVersions: buildTypesVersions() },
-        iconsOpt,
+        {
+          name: "vue-icons-plus",
+          exports: buildPackageExports(icons),
+          typesVersions: buildTypesVersions(),
+        },
+        iconsOpt
       );
     });
     await task("vue-icons write icons", async () => {
@@ -56,7 +60,7 @@ async function main() {
       await taskCommon.writeDistEntryPoints(allFilesOpt);
       await taskCommon.writePackageJson(
         { name: "@vue-icons-plus/all-files" },
-        allFilesOpt,
+        allFilesOpt
       );
     });
     await task("vue-icons_all-files write files", async () => {
@@ -94,4 +98,4 @@ async function main() {
 
 main();
 
-export { };
+export {};

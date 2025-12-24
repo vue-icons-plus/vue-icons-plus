@@ -4,7 +4,7 @@ import { useRouter } from "vue-router";
 import { IconManifestType, IconsManifest } from "vue-icons-plus";
 import IconList from "../components/IconList.vue";
 import { getIcons } from "../useGetIcons";
-import { SlActionRedo, SlArrowLeft } from "vue-icons-plus/sl";
+import { SlArrowLeft, SlActionRedo } from "vue-icons-plus/sl";
 import { FcAbout } from "@vue-icons-plus/all-files/fc/FcAbout";
 import { AiFillApi } from "@vue-icons-plus/all-files/ai/AiFillApi";
 import { AiFillGithub } from "@vue-icons-plus/all-files/ai/AiFillGithub";
