@@ -9,22 +9,34 @@ import App from "./App.vue";
 describe("App", () => {
   it("asserts correct props are passed", () => {
     const wrapper = mount(App);
-    expect(wrapper.getComponent(AiFillAccountBook).vm.color).toBe("red");
-    expect(wrapper.getComponent(AiFillAccountBook).props()).toEqual({
+    expect(
+      wrapper.getComponent(AiFillAccountBook).getCurrentComponent()?.props.color
+    ).toBe("red");
+    expect(
+      wrapper.getComponent(AiFillAccountBook).getCurrentComponent()?.props
+    ).toEqual({
       color: "red",
       className: undefined,
       size: 24,
     });
 
-    expect(wrapper.getComponent(IoAddCircleSharp).vm.size).toBe("32");
-    expect(wrapper.getComponent(IoAddCircleSharp).props()).toEqual({
+    expect(
+      wrapper.getComponent(IoAddCircleSharp).getCurrentComponent()?.props.size
+    ).toBe("32");
+    expect(
+      wrapper.getComponent(IoAddCircleSharp).getCurrentComponent()?.props
+    ).toEqual({
       color: undefined,
       className: undefined,
       size: "32",
     });
 
-    expect(wrapper.getComponent(CgAbstract).vm.className).toBe("cg-abstract");
-    expect(wrapper.getComponent(CgAbstract).props()).toEqual({
+    expect(
+      wrapper.getComponent(CgAbstract).getCurrentComponent()?.props.className
+    ).toBe("cg-abstract");
+    expect(
+      wrapper.getComponent(CgAbstract).getCurrentComponent()?.props
+    ).toEqual({
       color: undefined,
       className: "cg-abstract",
       size: 24,

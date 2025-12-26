@@ -36,7 +36,7 @@ export async function dirInit({ DIST, LIB }: TaskContext) {
 export async function writeFiles(
   icon: IconDefinition,
   { DIST }: TaskContext,
-  version = "vue3"
+  dir: string
 ) {
   const exists = new Set(); // for remove duplicate
   for (const content of icon.contents) {
@@ -56,15 +56,21 @@ export async function writeFiles(
       if (exists.has(componentName)) continue;
       exists.add(componentName);
 
-      const modHeader = `// THIS FILE IS AUTO GENERATED\nimport { GenIcon } from "../lib/index.mjs";\n`;
-      const modRes = iconRowTemplate(icon, componentName, iconData, "module");
+      const modHeader = `// THIS FILE IS AUTO GENERATED\nimport { useGenIcon } from "../lib/index.mjs";\n`;
+      const modRes = iconRowTemplate(
+        icon,
+        componentName,
+        iconData,
+        "module",
+        dir
+      );
       await fs.writeFile(
         path.resolve(DIST, icon.id, `${componentName}.mjs`),
         modHeader + modRes,
         "utf8"
       );
 
-      const comHeader = `// THIS FILE IS AUTO GENERATED\nvar GenIcon = require('../lib').GenIcon;\n`;
+      const comHeader = `// THIS FILE IS AUTO GENERATED\nvar useGenIcon = require('../lib').useGenIcon;\n`;
       const comRes = iconRowTemplate(icon, componentName, iconData, "common");
       await fs.writeFile(
         path.resolve(DIST, icon.id, `${componentName}.js`),
