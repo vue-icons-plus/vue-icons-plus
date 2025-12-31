@@ -2,8 +2,11 @@
 import { reactive, computed, watchEffect } from "vue";
 import { IconsManifest } from "vue-icons-plus";
 import { IpLoadingOne } from "vue-icons-plus/ip";
+import { AiFillGithub } from "@vue-icons-plus/all-files/ai/AiFillGithub";
+import { Fa6Npm } from "@vue-icons-plus/all-files/fa6/Fa6Npm";
 import IconList from "../components/IconList.vue";
-import { getIcons } from "../useGetIcons";
+import DarkMode from "../components/DarkMode.vue";
+import { getIcons } from "../utils";
 
 const props = defineProps({
   id: String,
@@ -25,14 +28,39 @@ watchEffect(async () => {
 
 <template>
   <div class="main">
-    <h1 class="main-title">
-      {{ iconManifest.name }}
-      <span v-if="iconModuleMap.has(iconManifest.id)">
-        (<span>total: </span>
-        {{ Object.keys(iconModuleMap.get(iconManifest.id)).length }})
-      </span>
-    </h1>
-    <div class="icon-main">
+    <div class="main-header">
+      <div class="main-header__content extra">
+        <h1 class="main-title">
+          {{ iconManifest.name }}
+          <span v-if="iconModuleMap.has(iconManifest.id)">
+            (<span>total: </span>
+            {{ Object.keys(iconModuleMap.get(iconManifest.id)).length }})
+          </span>
+        </h1>
+        <div class="extra-content">
+          <DarkMode class="m-r-8" />
+          <button class="icon-button m-r-8">
+            <a
+              href="https://github.com/vue-icons-plus/vue-icons-plus"
+              target="__blank"
+              rel="nofollow"
+            >
+              <AiFillGithub size="20" />
+            </a>
+          </button>
+          <button class="icon-button">
+            <a
+              href="https://www.npmjs.com/package/vue-icons-plus"
+              target="__blank"
+              rel="nofollow"
+            >
+              <Fa6Npm size="20" />
+            </a>
+          </button>
+        </div>
+      </div>
+    </div>
+    <div class="icon-main__scroll">
       <div class="icon-main-header">
         <div class="icon-main-info">
           <div>
@@ -70,27 +98,25 @@ watchEffect(async () => {
   font-size: 0.8rem;
   color: var(--color-gray-4);
 }
-.main-title {
-  padding: var(--space-3) var(--space-3) var(--space-2);
-  margin-bottom: 0;
-  font-size: 2.2rem;
-  border-bottom: 1px solid var(--color-gray-1);
-}
-.icon-main {
-  padding: 0 var(--space-3) var(--space-3);
-  height: calc(100vh - 125px);
+
+.icon-main__scroll {
+  padding: 0 2rem;
+  height: calc(100vh - 105px);
   overflow: auto;
 }
 
 .icon-main-info {
+  align-items: center;
   display: flex;
+  padding: 1.5rem 0;
 }
 .icon-main-info div {
   font-weight: 500;
-  margin: 16px 16px 8px 0;
+  margin-right: 2rem;
 }
 .icon-main-example pre {
   color: #e1e4e8;
+  margin-top: 0;
   margin-bottom: 2rem;
   background-color: #24292e;
   border-radius: var(--border-radius-md);

@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import { ref } from "vue";
 import { useRoute } from "vue-router";
-import { copyTextToClipboard } from "././../useGetIcons";
+import { copyTextToClipboard } from "../utils";
 import Tooltip from "./Tooltip.vue";
 const route = useRoute();
 const props = defineProps({
@@ -84,7 +84,7 @@ const handleClickIcon = (name: string) => {
   display: flex;
   align-items: center;
   justify-content: center;
-  background: var(--color-white);
+  background: var(--color-white-1);
   border-radius: var(--border-radius-md);
   box-shadow: 0 1px 3px #0000001a, 0 1px 2px #0000000f;
   border: 2px solid transparent;

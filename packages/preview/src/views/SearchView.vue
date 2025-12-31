@@ -38,6 +38,7 @@ watchEffect(() => {
   padding: var(--space-3);
   height: calc(100vh - 68px);
   overflow-y: auto;
+  background-color: var(--color-white);
 }
 .main-title {
   padding: 0 0 8px 0;

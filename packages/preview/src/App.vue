@@ -32,7 +32,7 @@ onMounted(async () => {});
 .layout .layout-aside {
   width: 260px;
   padding-top: var(--space-3);
-  background: #f4f5f7;
+  background: var(--color-gray-1);
 }
 .layout-main {
   flex: 1;

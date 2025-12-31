@@ -28,5 +28,9 @@ packages/vue-icons_sfc/*
 !packages/vue-icons_sfc/LICENSE
 !packages/vue-icons_sfc/README.md
 
+packages/vue-icons_sfc/*
+!packages/vue-icons_sfc/package.json
+!packages/vue-icons_sfc/LICENSE
+!packages/vue-icons_sfc/README.md
 .npmrc
 

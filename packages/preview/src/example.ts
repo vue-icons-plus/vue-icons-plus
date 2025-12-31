@@ -22,4 +22,18 @@ export const example = {
 <template>
   <SlActionRedo />
 </template>`,
+  uniapp: `<template>
+  <view>
+    <BiSearch />
+  </view>
+</template>
+
+<script lang="uts">
+  import { BiSearch } from 'vue-icons-plus/bi';
+  export default {
+    components: {
+      BiSearch
+    },
+  }
+</script>`,
 };

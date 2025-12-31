@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { onMounted, Ref, ref, VueElement, watch } from "vue";
-import { copyTextToClipboard, getIcons } from "../useGetIcons";
+import { copyTextToClipboard, getIcons } from "../utils";
 import Tooltip from "./Tooltip.vue";
 type Modules = { [key: string]: VueElement };
 
@@ -78,32 +78,13 @@ onMounted(async () => {
 </template>
 
 <style scoped>
-.main {
-  padding: var(--space-3);
-  height: calc(100vh - 68px);
-  overflow-y: auto;
-}
-.main-title {
-  padding: 0 0 8px 0;
-  margin-bottom: 0;
-  font-size: 2.2rem;
-}
-.sub-title {
-  font-weight: 400;
-  margin-top: 0;
-  margin-bottom: var(--space-2);
-  padding-top: var(--space-1);
-}
-.main-content {
-  margin-bottom: var(--space-2);
-}
 .icon-item .icon {
   cursor: pointer;
   min-height: 64px;
   display: flex;
   align-items: center;
   justify-content: center;
-  background: var(--color-white);
+  background: var(--color-white-1);
   border-radius: var(--border-radius-md);
   box-shadow: 0 1px 3px #0000001a, 0 1px 2px #0000000f;
   border: 2px solid transparent;
