@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { onMounted, Ref, ref, VueElement, watch } from "vue";
-import { copyTextToClipboard, getIcons } from "../useGetIcons";
+import { copyTextToClipboard, getIcons } from "../utils";
 import Tooltip from "./Tooltip.vue";
 type Modules = { [key: string]: VueElement };
 

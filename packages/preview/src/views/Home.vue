@@ -4,7 +4,7 @@ import { useRouter } from "vue-router";
 import { IconManifestType, IconsManifest } from "vue-icons-plus";
 import IconList from "../components/IconList.vue";
 import DarkMode from "../components/DarkMode.vue";
-import { getIcons } from "../useGetIcons";
+import { getIcons } from "../utils";
 import { SlActionRedo, SlArrowLeft } from "vue-icons-plus/sl";
 import { FcAbout } from "@vue-icons-plus/all-files/fc/FcAbout";
 import { AiFillApi } from "@vue-icons-plus/all-files/ai/AiFillApi";

@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import { ref } from "vue";
 import { useRoute } from "vue-router";
-import { copyTextToClipboard } from "././../useGetIcons";
+import { copyTextToClipboard } from "../utils";
 import Tooltip from "./Tooltip.vue";
 const route = useRoute();
 const props = defineProps({

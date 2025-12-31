@@ -2,9 +2,11 @@
 import { reactive, computed, watchEffect } from "vue";
 import { IconsManifest } from "vue-icons-plus";
 import { IpLoadingOne } from "vue-icons-plus/ip";
+import { AiFillGithub } from "@vue-icons-plus/all-files/ai/AiFillGithub";
+import { Fa6Npm } from "@vue-icons-plus/all-files/fa6/Fa6Npm";
 import IconList from "../components/IconList.vue";
 import DarkMode from "../components/DarkMode.vue";
-import { getIcons } from "../useGetIcons";
+import { getIcons } from "../utils";
 
 const props = defineProps({
   id: String,
@@ -27,7 +29,7 @@ watchEffect(async () => {
 <template>
   <div class="main">
     <div class="main-header">
-      <div class="main-header__content">
+      <div class="main-header__content extra">
         <h1 class="main-title">
           {{ iconManifest.name }}
           <span v-if="iconModuleMap.has(iconManifest.id)">
@@ -35,6 +37,27 @@ watchEffect(async () => {
             {{ Object.keys(iconModuleMap.get(iconManifest.id)).length }})
           </span>
         </h1>
+        <div class="extra-content">
+          <DarkMode class="m-r-8" />
+          <button class="icon-button m-r-8">
+            <a
+              href="https://github.com/vue-icons-plus/vue-icons-plus"
+              target="__blank"
+              rel="nofollow"
+            >
+              <AiFillGithub size="20" />
+            </a>
+          </button>
+          <button class="icon-button">
+            <a
+              href="https://www.npmjs.com/package/vue-icons-plus"
+              target="__blank"
+              rel="nofollow"
+            >
+              <Fa6Npm size="20" />
+            </a>
+          </button>
+        </div>
       </div>
     </div>
     <div class="icon-main__scroll">

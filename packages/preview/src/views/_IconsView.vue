@@ -2,7 +2,7 @@
 import { reactive, onMounted, ref, Ref } from "vue";
 import { IconManifestType } from "vue-icons-plus";
 import IconList from "../components/IconList.vue";
-import { getIcons } from "../useGetIcons";
+import { getIcons } from "../utils";
 import emitter from "../mitt";
 const iconManifest: Ref<IconManifestType> = ref({});
 const iconModuleMap = reactive(new Map());
