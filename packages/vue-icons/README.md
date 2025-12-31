@@ -7,9 +7,8 @@
 [npm-image]: https://img.shields.io/badge/yarn-3.6.1-brightgreen
 [npm-url]: https://www.npmjs.com/package/vue-icons-plus
 
- 
 [![Open in Gitpod](https://gitpod.io/button/open-in-gitpod.svg)](https://gitpod.io#https://github.com/vue-icons-plus/vue-icons-plus)
- 
+
 Vue icons plus icons total 50000+, support Vue 3/Vue 2.7+, allowing you to easily import and use them directly in Vue projects.
 
 ## Installation (for standard modern project)
@@ -78,23 +77,31 @@ npm install vue-icons-plus --save
 
 For example, to use an icon from **Material Design**, your import would be: `import { ICON_NAME } from 'vue-icons-plus/md';`
 
-## Installation (for Webpack 3, etc)
+## Installation (for Webpack 3 or 4, etc)
 
-> Due to npm restrictions, only supports: `ai`、`bi`、`bs`、`cg`、`ci`、`di`、`fa`、`fa6`、`fc`、`fi`、`gi`、`go`、`gr`、`hi`、`hi2`、`im`、`io`、`lia`.
+> Due to npm restrictions, `@vue-icons-plus/sfc-1` only supports: `ai`、`bi`、`bs`、`cg`、`ci`、`di`、`ep`、`fa`、`fa6`、`fc`、`fi`、`gi`、`go`、`gr`、`hi`、`hi2`、`im`、`io`、`io5`
+
+> `@vue-icons-plus/sfc-2` only supports: `ip`、`lia`、`lu`、`md`、`pi`
+
+> `@vue-icons-plus/sfc-3` only supports: `ri`、 `rx`、`si`、`sl`、`tb`、`tfi`、`ti`、`vsc`、`wi`
 
 If your project grows in size, this option is available. This method has the trade-off that it takes a long time to install the package.
 
 ```bash
-yarn add @vue-icons-plus/all-files
+yarn add @vue-icons-plus/sfc-1
+# yarn add @vue-icons-plus/sfc-2
+# yarn add @vue-icons-plus/sfc-3
 # or
-npm install @vue-icons-plus/all-files --save
+npm install @vue-icons-plus/sfc-1 --save
+# npm install @vue-icons-plus/sfc-2 --save
+# npm install @vue-icons-plus/sfc-3 --save
 ```
 
 ### Example usage for Vue 3
 
 ```jsx
 <script>
-  import { FaBeer } from "@vue-icons-plus/all-files/fa/FaBeer";
+  import FaBeer from "@vue-icons-plus/sfc-1/fa/FaBeer";
 </script>
 
 <template>
@@ -108,7 +115,7 @@ npm install @vue-icons-plus/all-files --save
 
 ```jsx
 <script>
-  import { FaBeer } from "@vue-icons-plus/all-files/fa/FaBeer";
+  import FaBeer from "@vue-icons-plus/sfc-1/fa/FaBeer";
   export defautls {
     components: {
       FaBeer

@@ -1,6 +1,6 @@
 {
-  "name": "@vue-icons-plus/all-files",
-  "version": "0.1.8",
+  "name": "@vue-icons-plus/sfc",
+  "version": "0.1.1",
   "description": "SVG vue icons of popular icon packs using ES6 imports",
   "author": "DwanL <253929992@qq.com>",
   "license": "MIT",

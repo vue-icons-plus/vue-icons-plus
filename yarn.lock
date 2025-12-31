@@ -1921,6 +1921,14 @@ __metadata:
   languageName: unknown
   linkType: soft
 
+"@vue-icons-plus/sfc@workspace:packages/vue-icons_sfc":
+  version: 0.0.0-use.local
+  resolution: "@vue-icons-plus/sfc@workspace:packages/vue-icons_sfc"
+  peerDependencies:
+    vue: ">=2.7.0"
+  languageName: unknown
+  linkType: soft
+
 "@vue/compiler-core@npm:3.4.23":
   version: 3.4.23
   resolution: "@vue/compiler-core@npm:3.4.23"
