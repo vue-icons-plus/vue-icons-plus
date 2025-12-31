@@ -12,8 +12,6 @@
     "lint": "yarn eslint .",
     "format": "prettier --write --ignore-unknown '**/*.{js,ts,mjs,cjs,json}'",
     "dev": "yarn workspace preview run dev",
-    "fetch": "yarn workspace core run fetch",
-    "build": "yarn workspace core run build",
     "test:dev": "yarn workspace test run dev",
     "test:unit": "yarn workspace test run test:unit"
   },
